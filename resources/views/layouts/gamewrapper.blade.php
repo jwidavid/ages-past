@@ -48,7 +48,7 @@
                             <li><a href="#" data-toggle="modal" data-target="#terms">Laws</a></li>
                             <li><a href="/staff">Staff</a></li>
                             <li><a href="/account-profile">Account Options</a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li><a href="{{ url('/logout') }}">Log Out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -66,7 +66,7 @@
                             <img src="{AVATAR}" style="height:100px;width:100%">
                         </div>
                         <div style="display:inline-block;vertical-align:top;width:45%;padding-left:10px;padding-right:10px;">
-                            <p>{PLAYERNAME} ({PLAYERID})</p>
+                            <p>{{ $character->name }} ({{ $character->id }})</p>
                             <p>{RANK}</p>
                             <p></p>
                             <p>Clan: <a href="clan.php"><u>{TRIBENAME}</u></a></p>
@@ -83,32 +83,32 @@
             <div class="row mt25 visible-xs">
                 <div class="col-xs-6 ">
                     <div class="clearfix">
-                        <p class="power-label pull-left">LVL {LVL}</p>
+                        <p class="power-label pull-left">LVL {{ $character->level }}</p>
                     </div>
                     <div class="clearfix">
                         <p class="power-label pull-left">XP</p>
-                        <p class="power-label stat"> {EXP}/{EXPNEED}</p>
+                        <p class="power-label stat"> {{ $character->experience }}/{EXPNEED}</p>
                     </div>
                         
                     <div class="clearfix">
                         <p class="power-label pull-left">HP</p>
-                        <p class="power-label stat"> {HP}/{HPMAX}</p>
+                        <p class="power-label stat"> {{ $character->health }}/{{ $character->health_max }}</p>
                     </div>
                         
                 </div>
                 <div class="col-xs-6">
                     <div class="clearfix">
-                        <p class="power-label pull-left">ELV {ELVL}</p>
+                        <p class="power-label pull-left">ELV {{ $character->element_level }}</p>
                     </div>
                         
                     <div class="clearfix">
                         <p class="power-label pull-left">E-X</p>
-                        <p class="power-label stat"> {ELEXP}/{ELEXPNEED}</p>
+                        <p class="power-label stat"> {{ $character->element_experience }}/{ELEXPNEED}</p>
                     </div>
                         
                     <div class="clearfix">
                         <p class="power-label pull-left">STA</p>
-                        <p class="power-label stat"> {STA}/{STAMAX}</p>
+                        <p class="power-label stat"> {{ $character->stamina }}/{{ $character->stamina_max }}</p>
                     </div>
                         
                 </div>
@@ -150,7 +150,7 @@
                         <div class="row">
                             <div class="col-xs-4">
                                 <img src="/assets/images/coins-icon.png" alt="coins" class="img-responsive center-block" />
-                                <p class="text-center">{COINS}</p>
+                                <p class="text-center">{{ $character->funds->coins }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <img src="/assets/images/coins-icon.png" alt="banked coins" class="img-responsive center-block" />
@@ -237,8 +237,8 @@
         <ul class="list-inline stats-list hidden-xs">
             <li>
                 <div class="clearfix">
-                    <p class="power-label pull-left">LVL {LVL}</p>
-                    <p class="power-label stat">{EXP}/{EXPNEED}</p>
+                    <p class="power-label pull-left">LVL {{ $character->level }}</p>
+                    <p class="power-label stat">{{ $character->level_experience }}/{EXPNEED}</p>
                 </div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">
@@ -247,8 +247,8 @@
             </li>
             <li>
                 <div class="clearfix">
-                    <p class="power-label pull-left">ELV {ELVL}</p>
-                    <p class="power-label stat">{ELEXP}/{ELEXPNEED}</p>
+                    <p class="power-label pull-left">ELV {{ $character->element_level }}</p>
+                    <p class="power-label stat">{{ $character->element_experience }}/{ELEXPNEED}</p>
                 </div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">
@@ -258,7 +258,7 @@
             <li>
             <div class="clearfix">
                 <p class="power-label pull-left">HP</p>
-                <p class="power-label stat">{HP}/{HPMAX}</p>
+                <p class="power-label stat">{{ $character->health }}/{{ $character->health_max }}</p>
             </div>
             <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">
@@ -267,7 +267,7 @@
             <li>
                 <div class="clearfix">
                     <p class="power-label pull-left">STA</p>
-                    <p class="power-label stat">{STA}/{STAMAX}</p>
+                    <p class="power-label stat">{{ $character->stamina }}/{{ $character->stamina_max }}</p>
                 </div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">

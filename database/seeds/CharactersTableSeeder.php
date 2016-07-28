@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
-class PlayersTableSeeder extends Seeder
+class CharactersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class PlayersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('players')->insert([
+        DB::table('characters')->insert([
         	[
             	'user_id' => 1,				
 				'name' => 'Dunamis',

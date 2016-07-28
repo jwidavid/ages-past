@@ -63,7 +63,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-	    $this->redirectTo = '/character';
+	    $this->redirectTo = '/character/create';
 	    
         return User::create([
             'name' => $data['name'],

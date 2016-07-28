@@ -12,15 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-
-Route::get('/character', function() {
-	return view('welcome');
-});
+Route::get('/character/create', 'CharacterController@create');
 
 Route::get('/mensk', 'MenskController@main');

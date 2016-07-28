@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Player;
+use App\Character;
+use App\User;
 use App\Http\Requests;
 use Auth;
 
@@ -26,8 +27,10 @@ class MenskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function main() 
-    {  
-	    $testing = Player::find( Auth::user()->id );
-		return view('mensk')->with('testing', $testing);
+    {          
+	    $character = Auth::user()->character;
+        $character->funds = $character->resources;
+        
+		return view('mensk')->with('character', $character);
     }
 }

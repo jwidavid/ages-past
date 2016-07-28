@@ -15,8 +15,12 @@ class DatabaseSeeder extends Seeder
 	    
 	    Model::unguard();
 	    
+           // This group is for testing
 		   $this->call(UsersTableSeeder::class);
-		   $this->call(PlayersTableSeeder::class);
+		   $this->call(CharactersTableSeeder::class);
+           $this->call(CharactersResourcesTableSeeder::class);
+           
+           
 //         $this->call(ClanPrivilegesTableSeeder::class);
 //         $this->call(DonationPacksTableSeeder::class);
 //         $this->call(ElementsSkillsTableSeeder::class);

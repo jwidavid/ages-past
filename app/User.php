@@ -31,7 +31,7 @@ class User extends Authenticatable
      */
     public function character()
     {
-        return $this->hasOne(Player::class);    
+        return $this->hasOne(Character::class);
     }
     
     public function hasCharacter()

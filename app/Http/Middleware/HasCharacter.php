@@ -15,7 +15,6 @@ class HasCharacter
      */
     protected $except = [
         '',
-        'home',
         'logout',
         'login',
     ];
@@ -29,15 +28,17 @@ class HasCharacter
      */
     public function handle($request, Closure $next)
     {
-        //dd($request->path());
-        if ( !in_array( $request->path(), $this->except ) ) {
-
-            $user = $request->user();
-            
-            if ( $user && !$user->hasCharacter() ) {
-                return redirect('/home');
-            }
+        $user = $request->user();
+        if ( $user && !$user->hasCharacter() && !in_array( $request->path(), $this->except ) ) {
+            return redirect('/character/create');
         }
+        elseif ( $user && $user->hasCharacter() && $request->path() == 'character/create' ) {
+            
+            $request->session()->flash('message', 'This is a message!');
+            $request->session()->flash('alert-class', 'alert-danger'); 
+            return redirect('/mensk');
+        }    
+        
         return $next($request);
     }
 }
