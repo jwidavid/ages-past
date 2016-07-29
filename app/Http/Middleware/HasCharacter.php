@@ -34,7 +34,7 @@ class HasCharacter
         }
         elseif ( $user && $user->hasCharacter() && $request->path() == 'character/create' ) {
             
-            $request->session()->flash('message', 'This is a message!');
+            $request->session()->flash('message', 'You can only have ONE character.');
             $request->session()->flash('alert-class', 'alert-danger'); 
             return redirect('/mensk');
         }    

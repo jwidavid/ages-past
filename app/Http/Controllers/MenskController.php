@@ -27,10 +27,7 @@ class MenskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function main() 
-    {          
-	    $character = Auth::user()->character;
-        $character->funds = $character->resources;
-        
-		return view('mensk')->with('character', $character);
+    {     
+		return view('mensk');
     }
 }

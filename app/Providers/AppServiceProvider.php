@@ -14,6 +14,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->composer('*', function($view) {
+            // if user is logged in then always include the character information
+            if ( auth()->check() ) {
+	            $character = auth()->user()->character;
+	            $character->funds = $character->resources;
+	            $view->with('character', $character);
+            }
+        });
     }
 
     /**

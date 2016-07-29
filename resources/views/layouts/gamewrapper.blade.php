@@ -149,7 +149,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img src="/assets/images/coins-icon.png" alt="coins" class="img-responsive center-block" />
+                                <img src="{{ URL::asset('images/coin-icon.png') }}" alt="coins" class="img-responsive center-block" />
                                 <p class="text-center">{{ $character->funds->coins }}</p>
                             </div>
                             <div class="col-xs-4">
@@ -158,21 +158,21 @@
                             </div>
                             <div class="col-xs-4">
                                 <img src="/assets/images/bronze-icon.png" alt="bronze" class="img-responsive center-block" />
-                                <p class="text-center">{BRONZE}</p>
+                                <p class="text-center">{{ $character->funds->bronze }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-4">
                                 <img src="/assets/images/silver-icon.png" alt="silver" class="img-responsive center-block" />
-                                <p class="text-center">{SILVER}</p>
+                                <p class="text-center">{{ $character->funds->silver }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <img src="/assets/images/gold-icon.png" alt="gold" class="img-responsive center-block" />
-                                <p class="text-center">{GOLD}</p>
+                                <p class="text-center">{{ $character->funds->gold }}</p>
                             </div>
                             <div class="col-xs-4">
                                 <img src="/assets/images/platinum-icon.png" alt="platinum" class="img-responsive center-block" />
-                                <p class="text-center">{PLATINUM}</p>
+                                <p class="text-center">{{ $character->funds->platinum }}</p>
                             </div>
                         </div>
                     </div>
