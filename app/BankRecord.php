@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CharactersResource extends Model
+class BankRecord extends Model
 {
     /**
      * Get the user of the character

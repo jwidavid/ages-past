@@ -36,7 +36,7 @@ class HasCharacter
             
             $request->session()->flash('message', 'You can only have ONE character.');
             $request->session()->flash('alert-class', 'alert-danger'); 
-            return redirect('/mensk');
+            return redirect()->back();
         }    
         
         return $next($request);

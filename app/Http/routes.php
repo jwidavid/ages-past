@@ -19,4 +19,10 @@ Route::auth();
 
 Route::get('/character/create', 'CharacterController@create');
 
-Route::get('/mensk', 'MenskController@main');
+Route::get('mensk', 'MenskController@main');
+Route::get('mensk/bank', function() {
+        
+    //$character->bank  = $character->bankRecords;
+    
+    return view('bank')//->with('character', $character);
+});

@@ -26,7 +26,7 @@
                 <li class="nav-list_header bg-gld">The Square</li>
                 <li><a href='mensk_castle.php'><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Mensk Castle</a></li>
                 <li><a href='mensk_library.php'><img src="{{ URL::asset('images/icons/Book_00.png') }}" alt="..." class="img-icon mr5"> Town Library</a></li>
-                <li><a href='mensk_bank.php'><img src="{{ URL::asset('images/icons/MetalCase_01.png') }}" alt="..." class="img-icon mr5"> Bank</a></li>
+                <li><a href="{{ url('/mensk/bank') }}"><img src="{{ URL::asset('images/icons/MetalCase_01.png') }}" alt="..." class="img-icon mr5"> Bank</a></li>
                 <li><a href='updates.php?view=mensk'><img src="{{ URL::asset('images/icons/Parchment_02.png') }}" alt="..." class="img-icon mr5"> Notices</a></li>
             </ul>
         </div>
