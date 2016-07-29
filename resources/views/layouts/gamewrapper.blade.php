@@ -277,6 +277,9 @@
         </ul>
 
         <main class="main-content">
+            @if(Session::has('message'))
+            <p class="alert {{ Session::get('alert-class', 'alert-info') }}" style="margin:auto;">{{ Session::get('message') }}</p>
+            @endif
             <!--Game Content Goes Here-->
             @yield('content')
             <!--End Game Content-->
