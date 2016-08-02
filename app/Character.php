@@ -8,8 +8,6 @@ class Character extends Model
 {
     
     protected $guarded = ['user_id'];
-    public $funds;
-    public $bank;
     
     /**
      * Get the user of the character
@@ -40,5 +38,14 @@ class Character extends Model
     {
         return $this->hasOne(BankRecord::class);
     }
-
+    
+    /**
+     * Get the character's banked financial resources
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function items() 
+    {
+        return $this->hasMany(Item::class);
+    }
 }

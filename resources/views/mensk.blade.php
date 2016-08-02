@@ -3,10 +3,6 @@
 @section('content')
 <!--Mensk Main Template-->
 
-@if(Session::has('message'))
-<p class="alert {{ Session::get('alert-class', 'alert-info') }}" style="margin:auto;">{{ Session::get('message') }}</p>
-@endif
-
 <div class="container-fluid game-container">
     <h1>Mensk</h1>
     @if ( isset($message) )
@@ -16,7 +12,7 @@
         <div class="col-md-4">
             <ul class="nav-list">
                 <li class="nav-list_header bg-rd">Shops</li>
-                <li><a href='mensk_merchant.php'><img src="{{ URL::asset('images/icons/potion-green.png') }}" alt="..." class="img-icon mr5"> Merchant</a></li>
+                <li><a href="{{ url('/mensk/merchant') }}"><img src="{{ URL::asset('images/icons/potion-green.png') }}" alt="..." class="img-icon mr5"> Merchant</a></li>
                 <li><a href='mensk_blacksmith.php'><img src="{{ URL::asset('images/icons/blacksmith.png') }}" alt="..." class="img-icon mr5"> Blacksmith</a></li>
                 <li><a href='mensk_potion.php'><img src="{{ URL::asset('images/icons/Essence_03.png') }}" alt="..." class="img-icon mr5"> The Alchemist</a></li>
             </ul>

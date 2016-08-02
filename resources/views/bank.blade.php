@@ -17,43 +17,43 @@
         <li>{{ $character->bankRecord->platinum }} / {{ $character->bankRecord->platinum_max }} Platinum</li>
     </ul>
     <p>
-        <a href='mensk_bank.php?action=increase' class="action-btn-sm btn">Increase Bank Max ({BINCCOST} Platinum)</a>
+        <a href="{{ url('/mensk/bank/inc/coins') }}" class="action-btn-sm btn">Increase Bank Max ({{ $cost }} Platinum)</a>
     </p>
-    {MESSAGE}
+
     <div class="row mt25">
         <div class="col-md-4">
-            <form action='mensk_bank.php?action=withdraw' method='post' class="form-horizontal">
+            <form action="{{ url('/mensk/bank/withdraw') }}" method='post' class="form-horizontal">
                 
                 {{ csrf_field() }}
                 
                 <div class='form-group'>
                     <label for='dcoins' class="col-sm-2">Coins</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='coins_deposit' id='coins_deposit'>
+                        <input type='text' class='form-control' name='coins' id='coins_withdraw'>                        
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dbronze' class="col-sm-2">Bronze</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='bronze_deposit' id='bronze_deposit'>
+                        <input type='text' class='form-control' name='bronze' id='bronze_withdraw'>
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dsilver' class="col-sm-2">Silver</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='silver_deposit' id='silver_deposit'>
+                        <input type='text' class='form-control' name='silver' id='silver_withdraw'>
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dgold' class="col-sm-2">Gold</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='gold_deposit' id='gold_deposit'>
+                        <input type='text' class='form-control' name='gold' id='gold_withdraw'>
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dplatinum' class="col-sm-2">Platinum</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='platinum_deposit' id='platinum_deposit'>
+                        <input type='text' class='form-control' name='platinum' id='platinum_withdraw'>
                     </div>
                 </div>
                 <div class='form-group'>
@@ -65,35 +65,38 @@
             </form>
         </div>
         <div class="col-md-4">
-            <form action='mensk_bank.php?action=deposit' method='post' class="form-horizontal">
+            <form action="{{ url('/mensk/bank/deposit') }}" method='post' class="form-horizontal">
+                
+                {{ csrf_field() }}
+                
                 <div class='form-group'>
                     <label for='dcoins' class="col-sm-2">Coins</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='dcoins' id='dcoins' value='{DCOINS}'>
+                        <input type='text' class='form-control' name='coins' id='coins_deposit'>                        
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dbronze' class="col-sm-2">Bronze</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='dbronze' id='dbronze' value='{DBRONZE}'>
+                        <input type='text' class='form-control' name='bronze' id='bronze_deposit'>   
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dsilver' class="col-sm-2">Silver</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='dsilver' id='dsilver' value='{DSILVER}'>
+                        <input type='text' class='form-control' name='silver' id='silver_deposit'>
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dgold' class="col-sm-2">Gold</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='dgold' id='dgold' value='{DGOLD}'>
+                        <input type='text' class='form-control' name='gold' id='gold_deposit'>
                     </div>
                 </div>
                 <div class='form-group'>
                     <label for='dplatinum' class="col-sm-2">Platinum</label>
                     <div class="col-sm-10">
-                        <input type='text' class='form-control' name='dplatinum' id='dplatinum' value='{DPLATINUM}'>
+                        <input type='text' class='form-control' name='platinum' id='platinum_deposit'>
                     </div>
                 </div>
                 <div class='form-group'>

@@ -29,7 +29,7 @@ class HasCharacter
     public function handle($request, Closure $next)
     {
         $user = $request->user();
-        if ( $user && !$user->hasCharacter() && !in_array( $request->path(), $this->except ) ) {
+        if ( $user && !$user->hasCharacter() && !in_array( $request->path(), $this->except ) && $request->path() != 'character/create' ) {
             return redirect('/character/create');
         }
         elseif ( $user && $user->hasCharacter() && $request->path() == 'character/create' ) {

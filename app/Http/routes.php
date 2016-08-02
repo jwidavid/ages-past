@@ -19,10 +19,18 @@ Route::auth();
 
 Route::get('/character/create', 'CharacterController@create');
 
-Route::get('mensk', 'MenskController@main');
-Route::get('mensk/bank', function() {
-        
-    //$character->bank  = $character->bankRecords;
-    
-    return view('bank')//->with('character', $character);
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('mensk', 'Mensk\MenskController@main');
+	Route::get('mensk/bank', 'Mensk\BankController@main');
+	Route::get('mensk/bank/inc/coins', 'Mensk\BankController@increaseCoinMax');
+	Route::post('mensk/bank/deposit', 'Mensk\BankController@deposit');
+	Route::post('mensk/bank/withdraw', 'Mensk\BankController@withdraw');	
+	
+	Route::get('mensk/merchant', function() {		
+	    return App::make('App\Http\Controllers\ShopController')->main(1);
+	})->middleware('auth');
+	
+	Route::get('mensk/merchant/{product_id}', function($product_id) {		
+	    return App::make('App\Http\Controllers\ShopController')->purchase(1, $product_id);
+	})->middleware('auth');
 });

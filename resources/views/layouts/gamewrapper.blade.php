@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/game.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ URL::asset('css/game.css') }}" type="text/css" media="all">    
 </head>
 
 <body>
@@ -116,7 +116,7 @@
             <!--End Stats Bar-->
                  
             <ul class="row list-unstyled mt25">
-                <li class="col-lg-6 mt-lg-15"><a href="mensk.php" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Mensk</a></li>
+                <li class="col-lg-6 mt-lg-15"><a href="{{ url('/mensk') }}" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Mensk</a></li>
                 <li class="col-lg-6 mt-lg-15"><a href="coliseum.php" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Coliseum</a></li>
             </ul>
                  
@@ -277,8 +277,11 @@
         </ul>
 
         <main class="main-content">
-            @if(Session::has('message'))
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}" style="margin:auto;">{{ Session::get('message') }}</p>
+	        
+	        @include('flash::message')
+	        
+            @if(count($errors))
+            <p class="alert alert-danger" style="margin:auto;">{{ $errors->first() }}</p>
             @endif
             <!--Game Content Goes Here-->
             @yield('content')
@@ -288,75 +291,17 @@
     </div>
 </div>
 
-
-<!-- Terms Modal -->
-<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Terms of Use</h4>
-            </div>
-            <div class="modal-body">
-
-                <p> 1) All players are required to behave in a proper manner.</p>
-
-                    <ol>
-                    <li>While playing Ages Past, you must respect the rights of other players, as listed below.</li>
-                    <li>You may not defraud, threaten, harass, or cause distress or unwanted attention to any player. (You must also abide by the trade rules which can be found in the trade forum)</li>
-                    <li>You may not print out any personal or real life information about another person in the game.</li>
-                    <li>You may not use any sexually explicit, harmful, threatening, abusive, defamatory, obscene, hateful, racially or ethnically offensive language.</li>
-                    <li>You may not post or link to any sexually explicit, harmful, threatening, abusive, defamatory, obscene, hateful, racially or ethnically offensive, or illegal imagery or content.
-                    </ol>
-
-                <p>2) Accounts, Cheating, Abusing or Modifying your stats in-game.</p>
-
-                    <ol>
-                    <li>You may not abuse any bug. If you happen to find one, report it in the Bug Forum or mail an Admin if its a Critical Bug. (Abusing bugs will get you Banned).</li>
-                    <li>You may not abuse the way certain parts of the game work.</li>
-                    <li>You may not cheat or modify your in-game stats.</li>
-                    <li>You may not create multiple accounts. Multiple people may play from the same location, but for your own benefit it is recommended to notify a "jailguard"</li>
-                    <li>Accounts will not change hands except through official, authorized methods.</li>
-                    </ol>
-
-                <p>3) Staff</p>
-
-                    <ol>
-                    <li>Admin's word is LAW, read it until you understand it.</li>
-                    <li>Staff members are NEVER permitted use their powers to gain any profit as a player. (If you have been selected to join the staff then you may never use your powers after your personal feelings.)</li>
-                    </ol>
-
-                <p>4) Manners in Clan</p>
-
-                    <ol>
-                    <li>Running a clan or playing in one is up to you.</li>
-                    <li>You may not spam clan advertisements except in official, designated areas.</li>
-                    <li>You may not exploit any bug in a manner to help your clan.</li>
-                    </ol>
-
-                <p>5) Donating and Rewards</p>
-
-                    <ol>
-
-                    <li>You may NEVER ever use a Credit Card that you don't have permission to use. If this occurs, then we will have to kick you out of the game.</li>
-                    <li>If you have donated and received your reward, you do not have the right to cheat, abuse, or break the laws in any way. Donating does not give you any extra privilege to disobey the rules.</li>
-                    <li>All donations are final.</li>
-                    </ol>
-            
-            </div>
-        </div>
-    </div>
-</div>
-
 <script>
-  $(function() {
-    $( "#train" ).selectmenu();
-  });
+	$(function() {
+    	$( "#train" ).selectmenu();
+  	});
   
-  $("#game-sidebar-menu").click(function(){
-    $("#extruderLeft").slideToggle("slow");
-}); 
+  	$("#game-sidebar-menu").click(function(){
+    	$("#extruderLeft").slideToggle("slow");
+	}); 
 
+	$('#flash-overlay-modal').modal();
+	$('div.alert').not('.alert-important').delay(3500).fadeOut(600);
 </script>
 
 </body>
