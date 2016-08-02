@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\Item;
 use App\Http\Requests;
 use Auth;
 
 class ShopController extends Controller
 {
-	private $character;
+	protected $character;
+    
     
     /**
      * Create a new controller instance.
@@ -18,9 +20,30 @@ class ShopController extends Controller
      */
     public function __construct()
     {
-        $this->character = Auth::user()->character;
+        $this->character = Auth::user()->character;       
     }
 	
+    protected function createItem( $product_base, $product )
+    {
+        Item::create([
+            'item_template_id' => $product_base->item_template_id,
+            'character_id' => $this->character->id,
+            'uses' => $product->uses
+        ]);
+        
+        return true;
+    }
+    
+    protected function getProductTemplate( $product_base )
+    {
+        if ( $product_base->weapon_template_id )
+            return $product_base->weapon_template;
+        elseif ( $product_base->armor_template_id )
+            return $product_base->armor_template;
+        else
+            return $product_base->item_template;
+    }
+    
     public function main($shop_id) 
     {
 	    $shop = Shop::find($shop_id);	    
@@ -31,16 +54,36 @@ class ShopController extends Controller
     
     public function purchase($shop_id, $product_id) 
     {
-    	$product_base = Shop::find($shop_id)->products()->find($product_id);
-    	
-    	if ( $product_base->weapon_template_id )
-    		$product = $product_base->weapon_template;
-    	elseif ( $product_base->armor_template_id )
-    		$product = $product_base->armor_template;
-    	else
-			$product = $product_base->item_template;		
-
-    	flash('Product Name: '.$product->name, 'success');
+        $product_base = Shop::find($shop_id)->products()->find($product_id);
+                    	
+        if ( !$product_base ) {
+            flash('That item is not sold here.', 'danger');
+            return redirect('mensk/merchant');
+        }
+        
+        $product = $this->getProductTemplate( $product_base );
+            
+            
+        $resources = $this->character->resources;
+        $currency = $product_base->currency;
+        
+        if ( $resources->$currency < $product_base->cost ) {
+            flash("You're too broke to buy the {$product->name}!", 'danger');
+            return redirect('mensk/merchant');
+        }
+        
+        if ( $product_base->weapon_template_id )
+            $this->createWeapon($product_base, $product);
+        elseif ( $product_base->armor_template_id )
+            $this->createArmor($product_base, $product);
+        else
+            $this->createItem($product_base, $product);
+        
+        // take character's money
+        $resources->$currency -= $product_base->cost;
+        $resources->save();
+        
+    	flash('Thank-you for purchasing the '.$product->name, 'success');
     	return redirect('mensk/merchant');
     }
 }
