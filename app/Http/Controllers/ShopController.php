@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\Armor;
 use App\Item;
+use App\Weapon;
 use App\Http\Requests;
 use Auth;
 
