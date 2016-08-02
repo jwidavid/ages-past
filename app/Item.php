@@ -32,10 +32,10 @@ class Item extends Model
     }
     
     
-	public static function get_items_and_data() 
-	{		
-		return DB::table('items')
-			->join('item_templates', 'items.item_template_id', '=', 'item_templates.id')			
-			->get();
-	}
+//	public static function get_items_and_data() 
+//	{		
+//		return DB::table('items')
+//			->join('item_templates', 'items.item_template_id', '=', 'item_templates.id')			
+//			->get();
+//	}
 }

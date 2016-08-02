@@ -22,6 +22,22 @@ class ShopController extends Controller
     {
         $this->character = Auth::user()->character;       
     }
+    
+    protected function createArmor( $product_base, $product )
+    {
+        Armor::create([
+            'armor_template_id' => $product_base->armor_template_id,
+            'character_id'  => $this->character->id,
+            'defense'       => $product->defense,
+            'fireres'       => $product->fireres,
+            'waterres'      => $product->waterres,
+            'earthres'      => $product->earthres,
+            'lightningres'  => $product->lightningres,
+            'windres'       => $product->windres,
+        ]);
+        
+        return true;
+    }
 	
     protected function createItem( $product_base, $product )
     {
@@ -29,6 +45,23 @@ class ShopController extends Controller
             'item_template_id' => $product_base->item_template_id,
             'character_id' => $this->character->id,
             'uses' => $product->uses
+        ]);
+        
+        return true;
+    }
+    
+    protected function createWeapon( $product_base, $product )
+    {
+        Item::create([
+            'weapon_template_id' => $product_base->weapon_template_id,
+            'character_id'      => $this->character->id,
+            'damage_min'        => $product->damage_min,
+            'damage_max'        => $product->damage_max,
+            'firedmg'           => $product->firedmg,
+            'waterdmg'          => $product->waterdmg,
+            'earthdmg'          => $product->earthdmg,
+            'lightningdmg'      => $product->lightningdmg,
+            'winddmg'           => $product->winddmg,
         ]);
         
         return true;

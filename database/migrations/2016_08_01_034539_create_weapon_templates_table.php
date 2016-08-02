@@ -14,18 +14,21 @@ class CreateWeaponTemplatesTable extends Migration
     {
         Schema::create('weapon_templates', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('class');
-			$table->string('name', 50);
+			$table->string('name', 50)->unique();
+            $table->string('class');
 			$table->text('description');
-			$table->tinyInteger('level');
-			$table->smallInteger('damage_low');
-			$table->smallInteger('damage_high');
-			$table->smallInteger('weight');			
-			$table->smallInteger('firedmg');
-			$table->smallInteger('waterdmg');
-			$table->smallInteger('earthdmg');
-			$table->smallInteger('lightningdmg');
-			$table->smallInteger('winddmg');
+			$table->tinyInteger('level')->unsigned()->default(1);
+			$table->smallInteger('damage_min')->unsigned();
+			$table->smallInteger('damage_max')->unsigned();
+			$table->smallInteger('weight')->unsigned();			
+			$table->smallInteger('firedmg')->unsigned();
+			$table->smallInteger('waterdmg')->unsigned();
+			$table->smallInteger('earthdmg')->unsigned();
+			$table->smallInteger('lightningdmg')->unsigned();
+			$table->smallInteger('winddmg')->unsigned();
+            $table->string('image', 250);
+            $table->smallInteger('image_height')->unsigned();
+            $table->text('misc')->nullable();
 			
 			$table->timestamps();
         });

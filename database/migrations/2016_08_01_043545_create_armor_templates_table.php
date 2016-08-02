@@ -14,16 +14,19 @@ class CreateArmorTemplatesTable extends Migration
     {
         Schema::create('armor_templates', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('name', 50);	
+			$table->string('name', 50)->unique();	
 			$table->text('description');
-			$table->tinyInteger('level');
-			$table->smallInteger('defense');
-			$table->smallInteger('weight');			
-			$table->smallInteger('firedmg');
-			$table->smallInteger('waterdmg');
-			$table->smallInteger('earthdmg');
-			$table->smallInteger('lightningdmg');
-			$table->smallInteger('winddmg');
+			$table->tinyInteger('level')->unsigned()->default(1);
+			$table->smallInteger('defense')->unsigned();
+			$table->smallInteger('weight')->unsigned();		
+			$table->smallInteger('firedmg')->unsigned();
+			$table->smallInteger('waterdmg')->unsigned();
+			$table->smallInteger('earthdmg')->unsigned();
+			$table->smallInteger('lightningdmg')->unsigned();
+			$table->smallInteger('winddmg')->unsigned();
+            $table->string('image', 250);
+            $table->smallInteger('image_height')->unsigned();
+            $table->text('misc')->nullable();
 			
 			$table->timestamps();
         });
