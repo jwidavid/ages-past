@@ -20,7 +20,7 @@ class ItemTemplatesTableSeeder extends Seeder
 					<br><br>
 					This item shatters after one use.',
 				'uses' => 1,
-				'image' => 'ankh.png',
+				'image' => 'items/ankh.png',
 				'image_height' => 50,
 				'type' => 'consume',				
 				'weight' => 3,
@@ -35,7 +35,7 @@ class ItemTemplatesTableSeeder extends Seeder
 					Your name will stay its new color until you use another vial of dye 
 					or you run out of Valerian Days!',
 				'uses' => 1,
-				'image' => 'dye_pink.png',
+				'image' => 'items/dye_pink.png',
 				'image_height' => 64,
 				'type' => 'consume',
 				'weight' => 1,
