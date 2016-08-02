@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     
-    protected $fillable = ['character_id','uses'];
+    protected $fillable = ['item_template_id','character_id','uses'];
 	public $timestamps = false;
 	
 	/**
