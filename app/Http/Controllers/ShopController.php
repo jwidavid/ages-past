@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\ShopProduct;
 use App\Armor;
 use App\Item;
 use App\Weapon;
@@ -54,7 +55,7 @@ class ShopController extends Controller
     
     protected function createWeapon( $product_base, $product )
     {
-        Item::create([
+        Weapon::create([
             'weapon_template_id' => $product_base->weapon_template_id,
             'character_id'      => $this->character->id,
             'damage_min'        => $product->damage_min,
@@ -80,11 +81,44 @@ class ShopController extends Controller
     }
     
     public function main($shop_id) 
-    {
-	    $shop = Shop::find($shop_id);	    
-	    $products = $shop->get_products_details();
+    {    
 	    
-		return view('merchant')->with('products', $products);
+	    // If shop is not found - handle error
+	    // If shop has no products - handle error
+	    
+	    $shop = Shop::find($shop_id);
+	    $oldproducts = 
+	    	ShopProduct::where("shop_id", "=", $shop_id)
+				->with(['armorTemplate', 'itemTemplate', 'weaponTemplate'])
+				->get();
+		
+		foreach ( $oldproducts as $product ) {
+			
+			if ($product->armorTemplate) {
+            	$newproduct = $product->armorTemplate;
+				$newproduct['product_type'] = 'armor';
+            }
+            elseif ($product->itemTemplate) {
+            	$newproduct = $product->itemTemplate;
+				$newproduct['product_type'] = 'item';
+            }
+            elseif ($product->weaponTemplate) {
+            	$newproduct = $product->weaponTemplate;
+            	$newproduct['product_type'] = 'weapon';
+            }
+			
+			$newproduct['product_id'] = $product->id;
+			$newproduct['cost'] = $product->cost;
+			$newproduct['currency'] = $product->currency;
+			
+			$newproducts[] = $newproduct;
+		}
+		
+		$products = (object) $newproducts;
+	    
+		return view('shop.'.$shop->layout)
+			->with('shop', $shop)
+			->with('products', $products);
     }
     
     public function purchase($shop_id, $product_id) 
