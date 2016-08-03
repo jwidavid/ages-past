@@ -24,7 +24,7 @@
 		            <a href="{{ url('mensk/merchant/'.$product->id) }}" class='action-btn-sm btn'>Buy</a>
 		        </td>
 		    </tr>
-			<tr >
+			<tr>
 	            <td colspan='6' class='hiddenRow'>
 					<div class='accordian-body collapse' id='demo{{ $product->product_id }}'>
 						<h3>Description:</h3>

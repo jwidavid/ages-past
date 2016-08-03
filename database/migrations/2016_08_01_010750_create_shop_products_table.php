@@ -19,7 +19,7 @@ class CreateShopProductsTable extends Migration
 			$table->integer('armor_template_id')->unsigned()->nullable();
 			$table->integer('item_template_id')->unsigned()->nullable();	
 			$table->integer('cost')->unsigned();
-			$table->enum('currency', array('coins','bronze','silver','gold','platinum'))->default('coins');
+			$table->enum('currency', array('coins','bronze','silver','gold','platinum','tickets'))->default('coins');
 			
 			// Set foreign key constraints
             $table->foreign('shop_id')

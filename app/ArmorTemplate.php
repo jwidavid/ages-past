@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArmorTemplate extends Model
 {
+    
     /**
      * Get the Template of the Item
      *

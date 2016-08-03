@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     
-    protected $fillable = ['item_template_id','character_id','uses'];
-	public $timestamps = false;
+    //protected $fillable = ['item_template_id','character_id','uses'];
+	//public $timestamps = false;
 	
 	/**
      * Get the Character owner of the Item

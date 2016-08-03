@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WeaponTemplate extends Model
 {
+    
     /**
      * Get the Template of the Item
      *

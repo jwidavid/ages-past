@@ -92,33 +92,77 @@ class ShopController extends Controller
 				->with(['armorTemplate', 'itemTemplate', 'weaponTemplate'])
 				->get();
 		
+        $armorProducts = array();
+        $itemProducts = array();
+        $weaponProducts = array();
+        
 		foreach ( $oldproducts as $product ) {
 			
 			if ($product->armorTemplate) {
-            	$newproduct = $product->armorTemplate;
-				$newproduct['product_type'] = 'armor';
+            	$armorProduct = $product->armorTemplate;
+				$armorProduct['product_type'] = 'armor';
+                
+                $armorProduct['product_id'] = $product->id;
+                $armorProduct['cost'] = $product->cost;
+                $armorProduct['currency'] = $product->currency;
+                
+                if ( $shop->layout == 'single' ) {
+                    $newproducts[] = $armorProduct;
+                }
+                elseif ( $shop->layout == 'multi' ) {
+                    $armorProducts[] = $armorProduct;
+                }
             }
             elseif ($product->itemTemplate) {
-            	$newproduct = $product->itemTemplate;
-				$newproduct['product_type'] = 'item';
+            	$itemProduct = $product->itemTemplate;
+				$itemProduct['product_type'] = 'item';
+                
+                $itemProduct['product_id'] = $product->id;
+                $itemProduct['cost'] = $product->cost;
+                $itemProduct['currency'] = $product->currency;
+                
+                if ( $shop->layout == 'single' ) {
+                    $newproducts[] = $itemProduct; 
+                }
+                elseif ( $shop->layout == 'multi' ) {
+                    $itemProducts[] = $itemProduct;
+                }
             }
             elseif ($product->weaponTemplate) {
-            	$newproduct = $product->weaponTemplate;
-            	$newproduct['product_type'] = 'weapon';
+            	$weaponProduct = $product->weaponTemplate;
+            	$weaponProduct['product_type'] = 'weapon';
+                
+                $weaponProduct['product_id'] = $product->id;
+                $weaponProduct['cost'] = $product->cost;
+                $weaponProduct['currency'] = $product->currency;
+                
+                if ( $shop->layout == 'single' ) {
+                    $newproducts[] = $weaponProduct;
+                }
+                elseif ( $shop->layout == 'multi' ) {
+                    $weaponProducts[] = $weaponProduct;
+                }
             }
-			
-			$newproduct['product_id'] = $product->id;
-			$newproduct['cost'] = $product->cost;
-			$newproduct['currency'] = $product->currency;
-			
-			$newproducts[] = $newproduct;
 		}
 		
-		$products = (object) $newproducts;
-	    
-		return view('shop.'.$shop->layout)
-			->with('shop', $shop)
-			->with('products', $products);
+        if ( $shop->layout == 'single') {
+            $products = (object) $newproducts;
+        
+            return view('shop.'.$shop->layout)
+                ->with('shop', $shop)
+                ->with('products', $products);
+        }
+        elseif ( $shop->layout == 'multi' ) {
+            $armors = (object) $armorProducts;
+            $items = (object) $itemProducts;
+            $weapons = (object) $weaponProducts;
+            
+            return view('shop.'.$shop->layout)
+                ->with('shop', $shop)
+                ->with('armors', $armors)
+                ->with('items', $items)
+                ->with('weapons', $weapons);
+        }
     }
     
     public function purchase($shop_id, $product_id) 
