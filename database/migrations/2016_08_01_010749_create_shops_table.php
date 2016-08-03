@@ -19,7 +19,7 @@ class CreateShopsTable extends Migration
             $table->enum('layout', array('single', 'multi'))->default('single');
             $table->boolean('is_active')->default(1);
             $table->text('misc')->nullable();
-			
+
 			$table->timestamp('created_at')->useCurrent();
         });
     }
