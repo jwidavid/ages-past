@@ -127,7 +127,7 @@ class ShopController extends Controller
                     	
         if ( !$product_base ) {
             flash('That item is not sold here.', 'danger');
-            return redirect('mensk/merchant');
+            return redirect()->back();
         }
         
         $product = $this->getProductTemplate( $product_base );
@@ -138,7 +138,7 @@ class ShopController extends Controller
         
         if ( $resources->$currency < $product_base->cost ) {
             flash("You're too broke to buy the {$product->name}!", 'danger');
-            return redirect('mensk/merchant');
+            return redirect()->back();
         }
         
         if ( $product_base->weapon_template_id )
@@ -153,6 +153,6 @@ class ShopController extends Controller
         $resources->save();
         
     	flash('Thank-you for purchasing the '.$product->name, 'success');
-    	return redirect('mensk/merchant');
+    	return redirect()->back();
     }
 }
