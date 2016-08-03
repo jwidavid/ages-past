@@ -50,7 +50,7 @@ class ItemTemplatesTableSeeder extends Seeder
 					Your name will stay its new color until you use another vial of dye 
 					or you run out of Valerian Days!',
 				'uses' => 1,
-				'image' => 'items/dye_pink.png',
+				'image' => 'items/dye-pink.png',
 				'image_height' => 64,
 				'type' => 'consume',
 				'weight' => 1,
@@ -65,7 +65,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_green.png',
+                'image' => 'items/dye-green.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
@@ -80,7 +80,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_dneonblue.png',
+                'image' => 'items/dye-dneonblue.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
@@ -95,7 +95,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_white.png',
+                'image' => 'items/dye-white.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
@@ -110,7 +110,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_magenta.png',
+                'image' => 'items/dye-magenta.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
@@ -125,7 +125,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_green.png',
+                'image' => 'items/dye-green.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
@@ -140,7 +140,7 @@ class ItemTemplatesTableSeeder extends Seeder
                     Your name will stay its new color until you use another vial of dye 
                     or you run out of Valerian Days!',
                 'uses' => 1,
-                'image' => 'items/dye_orange.png',
+                'image' => 'items/dye-orange.png',
                 'image_height' => 64,
                 'type' => 'consume',
                 'weight' => 1,
