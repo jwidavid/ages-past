@@ -87,7 +87,7 @@
                     </div>
                     <div class="clearfix">
                         <p class="power-label pull-left">XP</p>
-                        <p class="power-label stat"> {{ $character->experience }}/{EXPNEED}</p>
+                        <p class="power-label stat"> {{ $character->experience }}/{{ $character->experience_needed }}</p>
                     </div>
                         
                     <div class="clearfix">
@@ -238,7 +238,7 @@
             <li>
                 <div class="clearfix">
                     <p class="power-label pull-left">LVL {{ $character->level }}</p>
-                    <p class="power-label stat">{{ $character->level_experience }}/{EXPNEED}</p>
+                    <p class="power-label stat">{{ $character->level_experience }}/{{ $character->experience_needed }}</p>
                 </div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">
@@ -248,7 +248,8 @@
             <li>
                 <div class="clearfix">
                     <p class="power-label pull-left">ELV {{ $character->element_level }}</p>
-                    <p class="power-label stat">{{ $character->element_experience }}/{ELEXPNEED}</p>
+                    <p class="power-label stat">{{ $character->element_experience }}/
+	                    {{ $character->element_experience_needed }}</p>
                 </div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%;">

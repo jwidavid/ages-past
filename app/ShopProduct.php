@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShopProduct extends Model
 {    
-    public function armor_template() 
+    public function armorTemplate() 
     {
     	return $this->belongsTo(ArmorTemplate::Class);
     }
     
-    public function item_template() 
+    public function itemTemplate() 
     {
     	return $this->belongsTo(ItemTemplate::Class);
     }
@@ -22,7 +22,7 @@ class ShopProduct extends Model
     	return $this->belongsTo(Shop::Class);
     }
     
-    public function weapon_template() 
+    public function weaponTemplate() 
     {
     	return $this->belongsTo(WeaponTemplate::Class);
     }

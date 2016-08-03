@@ -24,6 +24,18 @@ class ShopProductsTableSeeder extends Seeder
             	'item_template_id' => 2,		
 				'cost' => 2000,
 				'currency' => 'coins',
+			],
+			[
+            	'shop_id' => 2,
+            	'armor_template_id' => 1,		
+				'cost' => 552,
+				'currency' => 'coins',
+			],
+			[
+            	'shop_id' => 2,
+            	'weapon_template_id' => 1,		
+				'cost' => 1300,
+				'currency' => 'coins',
 			]
 		]);
     }

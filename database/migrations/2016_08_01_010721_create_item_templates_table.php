@@ -34,7 +34,6 @@ class CreateItemTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('items');
         Schema::drop('item_templates');
     }
 }

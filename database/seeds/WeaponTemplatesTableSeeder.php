@@ -16,7 +16,7 @@ class WeaponTemplatesTableSeeder extends Seeder
             [
                 'name' => 'Letter Opener',
                 'class' => 'dagger',                
-                'description' => "This armor doesn't help you much, but at least you'll be comfortable.",
+                'description' => "If your enemies fear paper cuts, then this should be your weapon of choice.",
                 'level' => 1,
                 'damage_min' => 3,
                 'damage_max' => 5,

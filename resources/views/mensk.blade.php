@@ -13,7 +13,7 @@
             <ul class="nav-list">
                 <li class="nav-list_header bg-rd">Shops</li>
                 <li><a href="{{ url('/mensk/merchant') }}"><img src="{{ URL::asset('images/icons/potion-green.png') }}" alt="..." class="img-icon mr5"> Merchant</a></li>
-                <li><a href='mensk_blacksmith.php'><img src="{{ URL::asset('images/icons/blacksmith.png') }}" alt="..." class="img-icon mr5"> Blacksmith</a></li>
+                <li><a href="{{ url('/mensk/blacksmith') }}"><img src="{{ URL::asset('images/icons/blacksmith.png') }}" alt="..." class="img-icon mr5"> Blacksmith</a></li>
                 <li><a href='mensk_potion.php'><img src="{{ URL::asset('images/icons/Essence_03.png') }}" alt="..." class="img-icon mr5"> The Alchemist</a></li>
             </ul>
         </div>

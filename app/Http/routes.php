@@ -33,4 +33,13 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('mensk/merchant/{product_id}', function($product_id) {		
 	    return App::make('App\Http\Controllers\ShopController')->purchase(1, $product_id);
 	})->middleware('auth');
+	
+	
+	Route::get('mensk/blacksmith', function() {		
+	    return App::make('App\Http\Controllers\ShopController')->main(2);
+	})->middleware('auth');
+	
+	Route::get('mensk/blacksmith/{product_id}', function($product_id) {		
+	    return App::make('App\Http\Controllers\ShopController')->purchase(2, $product_id);
+	})->middleware('auth');
 });
