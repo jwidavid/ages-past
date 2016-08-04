@@ -4,7 +4,7 @@
 <!--Merchant Template-->
 <div class="container-fluid game-container">
     <h1>{{ $shop->name }}</h1>
-    <p>{{ $shop->welcome_message }}</p>
+    <p>{!! html_entity_decode($shop->welcome_message) !!}</p>
     <div class="clearfix">
         <table border='1' cellspacing='0' cellpadding='0' align='left' class="table-striped table item-list">
             <thead>
