@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('mensk/bank/deposit', 'Mensk\BankController@deposit');
 	Route::post('mensk/bank/withdraw', 'Mensk\BankController@withdraw');	
 	
+	
 	// Merchant
 	
 	Route::get('mensk/merchant', function() {		
