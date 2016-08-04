@@ -19,6 +19,6 @@ class MenskController extends Controller
      */
     public function main() 
     {     
-		return view('mensk');
+		return view('mensk.mensk');
     }
 }

@@ -21,11 +21,13 @@ Route::get('/character/create', 'CharacterController@create');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('mensk', 'Mensk\MenskController@main');
-	Route::get('mensk/bank', 'Mensk\BankController@main');
-	Route::get('mensk/bank/inc/coins', 'Mensk\BankController@increaseCoinMax');
-	Route::post('mensk/bank/deposit', 'Mensk\BankController@deposit');
-	Route::post('mensk/bank/withdraw', 'Mensk\BankController@withdraw');	
+		
 	
+    
+    /*********************
+    * Mensk Shops
+    *********************/
+    
 	
 	// Merchant
 	
@@ -58,4 +60,34 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('mensk/alchemist/{product_id}', function($product_id) {		
 	    return App::make('App\Http\Controllers\ShopController')->purchase(3, $product_id);
 	})->middleware('auth');
+    
+    
+    /*********************
+    * Mensk Shops
+    *********************/
+    
+    
+    // Library
+    
+    Route::get('mensk/library', 'Mensk\LibraryController@main');
+    Route::get('mensk/library/info', 'Mensk\LibraryController@info');
+    Route::get('mensk/library/records', 'Mensk\LibraryController@records');
+        Route::get('mensk/library/clans', 'Mensk\LibraryController@clans');
+        Route::get('mensk/library/citizens', 'Mensk\LibraryController@citizens');
+    
+    Route::get('mensk/library/research', 'Mensk\LibraryController@research');
+    Route::get('mensk/library/writings', 'Mensk\LibraryController@writings');
+    
+    
+    // Bank
+    
+    Route::get('mensk/bank', 'Mensk\BankController@main');
+    Route::get('mensk/bank/inc/coins', 'Mensk\BankController@increaseCoinMax');
+    Route::post('mensk/bank/deposit', 'Mensk\BankController@deposit');
+    Route::post('mensk/bank/withdraw', 'Mensk\BankController@withdraw');
+    
+    
+    // Notices
+    
+    Route::get('mensk/notices', 'Mensk\NoticesController@main');
 });

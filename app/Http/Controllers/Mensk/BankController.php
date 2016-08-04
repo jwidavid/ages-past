@@ -39,7 +39,7 @@ class BankController extends Controller
      */
     public function main() 
     {     
-		return view('bank')->with('cost', $this->cost);
+		return view('mensk.bank')->with('cost', $this->cost);
     }
     
     
