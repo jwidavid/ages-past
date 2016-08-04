@@ -146,7 +146,40 @@ class ItemTemplatesTableSeeder extends Seeder
                 'weight' => 1,
                 
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ]
+            ],
+            [
+                'name' => 'Minor Healing Potion',                
+                'description' => 'A tonic to replenish scrapes and bruises.',
+                'uses' => 1,
+                'image' => 'items/potion-red.png',
+                'image_height' => 64,
+                'type' => 'consume',
+                'weight' => 1,
+                
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Healing Potion',                
+                'description' => 'A tonic to replenish scrapes and bruises.',
+                'uses' => 1,
+                'image' => 'items/potion-red.png',
+                'image_height' => 64,
+                'type' => 'consume',
+                'weight' => 1,
+                
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Major Healing Potion',                
+                'description' => 'A tonic to replenish scrapes and bruises.',
+                'uses' => 1,
+                'image' => 'items/potion-red.png',
+                'image_height' => 64,
+                'type' => 'consume',
+                'weight' => 1,
+                
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
 		]);
     }
 }
