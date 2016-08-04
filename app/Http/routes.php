@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::post('mensk/bank/deposit', 'Mensk\BankController@deposit');
 	Route::post('mensk/bank/withdraw', 'Mensk\BankController@withdraw');	
 	
+	// Merchant
+	
 	Route::get('mensk/merchant', function() {		
 	    return App::make('App\Http\Controllers\ShopController')->main(1);
 	})->middleware('auth');
@@ -35,11 +37,24 @@ Route::group(['middleware' => 'auth'], function(){
 	})->middleware('auth');
 	
 	
+	// Blacksmith
+	
 	Route::get('mensk/blacksmith', function() {		
 	    return App::make('App\Http\Controllers\ShopController')->main(2);
 	})->middleware('auth');
 	
 	Route::get('mensk/blacksmith/{product_id}', function($product_id) {		
 	    return App::make('App\Http\Controllers\ShopController')->purchase(2, $product_id);
+	})->middleware('auth');
+	
+	
+	// Alchemist
+	
+	Route::get('mensk/alchemist', function() {		
+	    return App::make('App\Http\Controllers\ShopController')->main(3);
+	})->middleware('auth');
+	
+	Route::get('mensk/alchemist/{product_id}', function($product_id) {		
+	    return App::make('App\Http\Controllers\ShopController')->purchase(3, $product_id);
 	})->middleware('auth');
 });
