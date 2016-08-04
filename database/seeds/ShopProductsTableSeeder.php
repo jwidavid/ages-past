@@ -153,6 +153,32 @@ class ShopProductsTableSeeder extends Seeder
                 'item_template_id' => null,        
                 'cost' => 1300,
                 'currency' => 'coins',
+            ],
+            
+            // Alchemist
+            [
+                'shop_id' => 3,
+                'weapon_template_id' => null,
+                'armor_template_id' => null,
+                'item_template_id' => 10,        
+                'cost' => 20,
+                'currency' => 'coins',
+            ],
+            [
+                'shop_id' => 3,
+                'weapon_template_id' => null,
+                'armor_template_id' => null,
+                'item_template_id' => 11,        
+                'cost' => 100,
+                'currency' => 'coins',
+            ],
+            [
+                'shop_id' => 3,
+                'weapon_template_id' => null,
+                'armor_template_id' => null,
+                'item_template_id' => 12,        
+                'cost' => 500,
+                'currency' => 'coins',
             ]
 		]);
     }
