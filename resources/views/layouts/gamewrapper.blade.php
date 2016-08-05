@@ -227,7 +227,7 @@
     <div id="content" class="content-wrapper" >
         <div class="collapse" id="collapseExample">
             <div class="message">
-                <p>{MESSAGE}</p>
+                <p>Testing...</p>
                 <button class="msg-close btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                   <b>x</b>
                 </button>
@@ -281,6 +281,8 @@
 	        
 	        @include('flash::message')
 	        
+	        {!! Session::forget('flash_notification.message') !!}
+	        
             @if(count($errors))
             <p class="alert alert-danger" style="margin:auto;">{{ $errors->first() }}</p>
             @endif
@@ -304,6 +306,8 @@
 	$('#flash-overlay-modal').modal();
 	$('div.alert').not('.alert-important').delay(3500).fadeOut(600);
 </script>
+
+@yield('page-script')
 
 </body>
 </html>
