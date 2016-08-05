@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
+use Auth;
 
 class LibraryController extends Controller
 {
@@ -38,6 +40,17 @@ class LibraryController extends Controller
             flash('It seems that there are no clans yet created.', 'warning');
         
         return view('mensk.library.clans')->with('clans', $clans);
+    }
+    
+    public function citizens() 
+    {
+	    $characters = DB::table('characters')
+	    	->where('characters.id', '!=', Auth::user()->character->id)
+	    	->select('characters.id','characters.name','users.rank','characters.level')
+	    	->join('users', 'characters.user_id', '=', 'users.id')
+	    	->get();
+	    
+    	return view('mensk.library.citizens')->with('characters', $characters);
     }
     
     public function research() 
