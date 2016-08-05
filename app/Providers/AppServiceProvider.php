@@ -18,7 +18,8 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function($view) {
             // if user is logged in then always include the character information
             if ( auth()->check() ) {
-	            $character = auth()->user()->character;
+	            $user = auth()->user();
+                $character = $user->character;
 	            $character->funds = $character->resources;
 	            
 	            $expneed = round( ( pow( $character->level, 3 ) + 50 ) * 2.1 );
@@ -26,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
 	            
 	            $character->experience_needed = $expneed;
 	            $character->element_experience_needed = $elexpneed;
-	            	            
+	            $character->rank = $user->rank;
+                            
 	            $view->with('character', $character);
             }
         });

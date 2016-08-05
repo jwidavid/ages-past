@@ -8,13 +8,13 @@
             <p>Before you stands a massive stone building, the sign above the double wooden doors reads 'Town Library' <i>how original...</i> you think to yourself.</p>
             <p>You notice signs, depicting the different sectors of the library.</p>
 
-          </div>
+        </div>
         <div class="col-md-4">
             <ul class="nav-list">
                 <li><a href="{{ url('/mensk/library/info') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Help Desk</a></li>
-                <li><a href="{{ url('/mensk/library/records') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Public Records</a></li>
-                <li><a href="{{ url('/mensk/library/research') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Research</a></li>
-                <li><a href="{{ url('/mensk/library/writings') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Creative Writings</a></li>
+                <li><a href="{{ url('/mensk/library/books/records') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Public Records</a></li>
+                <li><a href="{{ url('/mensk/library/books/research') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Research</a></li>
+                <li><a href="{{ url('/mensk/library/books/creative') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5">Creative Writings</a></li>
             </ul>
         </div>
     </div>

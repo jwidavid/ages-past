@@ -67,7 +67,7 @@
                         </div>
                         <div style="display:inline-block;vertical-align:top;width:45%;padding-left:10px;padding-right:10px;">
                             <p>{{ $character->name }} ({{ $character->id }})</p>
-                            <p>{RANK}</p>
+                            <p>{{ $character->rank }}</p>
                             <p></p>
                             <p>Clan: <a href="clan.php"><u>{TRIBENAME}</u></a></p>
                         </div>

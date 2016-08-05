@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use App\Book;
 
 class LibraryController extends Controller
 {
@@ -20,6 +21,18 @@ class LibraryController extends Controller
     public function main() 
     {     
         return view('mensk.library.library');
+    }
+    
+    public function book($book_id)
+    {
+        $book = Book::find($book_id);
+        return view('mensk.library.book')->with('book', $book);
+    }
+    
+    public function books($category)
+    {
+        $books = Book::where('category', '=', $category);
+        return view('mensk.library.books')->with('books', $books)->with('category', ucfirst($category));
     }
     
     public function info() 
@@ -51,15 +64,5 @@ class LibraryController extends Controller
 	    	->get();
 	    
     	return view('mensk.library.citizens')->with('characters', $characters);
-    }
-    
-    public function research() 
-    {     
-        return view('mensk.library.research');
-    }
-    
-    public function writings() 
-    {     
-        return view('mensk.library.writings');
     }
 }

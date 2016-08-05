@@ -26,7 +26,7 @@
                     <th width='50'>Members</th>
                 </thead>
                 @foreach($clans as $clan)
-                <tr style='border-bottom: solid black 1px;' class='clickable-row' data-href="{{ url('/clan/view/'.$clan->id) }}">
+                <tr style='border-bottom: solid black 1px;' class='clickable-row' data-href="{{ url('/clan/'.$clan->id) }}">
                     <td align='center'>{{ $clan->name }}</td>
                     <td align='center'>{{ $clan->character_id }}</td>
                     <td align='center'>{{ $clan->name }}</td>
@@ -47,5 +47,14 @@
         </div>
     </div>
 </div>
-
 @endsection
+
+@section('page-script')
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+</script>
+@stop

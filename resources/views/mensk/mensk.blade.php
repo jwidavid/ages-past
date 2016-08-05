@@ -5,9 +5,12 @@
 
 <div class="container-fluid game-container">
     <h1>Mensk</h1>
-    @if ( isset($message) )
-    <p>{{ $message }}</p>
-    @endif
+    <p> <!-- Don't display this <p> if using a phone-sized device -->
+        As is custom when entering a city, you stop to talk to the nearest citizen.<br>
+        "Welcome to Mensk!" the greeter says before continuing, "The town is bustling with the Festival Spirit.
+        There's a smile on<br>each face, and coins in every pocket!" You try to question him further but the man only repeats himself... typical.<br> 
+        Instead, you begin to look around...
+    </p>
     <div class="row mt25">
         <div class="col-md-4">
             <ul class="nav-list">
@@ -20,7 +23,7 @@
         <div class="col-md-4">
             <ul class="nav-list">
                 <li class="nav-list_header bg-gld">The Square</li>
-                <li><a href='mensk_castle.php'><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Mensk Castle</a></li>
+                <li><a href="{{ url('/mensk/castle') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Mensk Castle</a></li>
                 <li><a href="{{ url('/mensk/library') }}"><img src="{{ URL::asset('images/icons/Book_00.png') }}" alt="..." class="img-icon mr5"> Town Library</a></li>
                 <li><a href="{{ url('/mensk/bank') }}"><img src="{{ URL::asset('images/icons/MetalCase_01.png') }}" alt="..." class="img-icon mr5"> Bank</a></li>
                 <li><a href='updates.php?view=mensk'><img src="{{ URL::asset('images/icons/Parchment_02.png') }}" alt="..." class="img-icon mr5"> Notices</a></li>

@@ -21,14 +21,13 @@ Route::get('/character/create', 'CharacterController@create');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('mensk', 'Mensk\MenskController@main');
-		
-	
-    
+
+
+
     /*********************
     * Mensk Shops
     *********************/
     
-	
 	// Merchant
 	
 	Route::get('mensk/merchant', function() {		
@@ -62,9 +61,13 @@ Route::group(['middleware' => 'auth'], function(){
 	})->middleware('auth');
     
     
+    
     /*********************
-    * Mensk Shops
+    * Mensk Square
     *********************/
+    
+    // Castle
+    Route::get('mensk/castle', 'Mensk\Castle\CastleController@main');
     
     
     // Library
@@ -75,8 +78,9 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('mensk/library/clans', 'Mensk\LibraryController@clans');
         Route::get('mensk/library/citizens', 'Mensk\LibraryController@citizens');
     
-    Route::get('mensk/library/research', 'Mensk\LibraryController@research');
-    Route::get('mensk/library/writings', 'Mensk\LibraryController@writings');
+    Route::get('mensk/library/books', 'Mensk\LibraryController@books');
+    Route::get('mensk/library/books/{category}', 'Mensk\LibraryController@books');
+    Route::get('mensk/library/book/{book_id}', 'Mensk\LibraryController@book');
     
     
     // Bank
