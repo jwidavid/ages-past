@@ -901,3 +901,7 @@ legend {
 		width: 100%;
 	}
 }
+
+.clickable-row:hover {
+	cursor: pointer;
+}
