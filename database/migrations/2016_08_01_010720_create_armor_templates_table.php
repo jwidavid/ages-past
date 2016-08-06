@@ -19,11 +19,11 @@ class CreateArmorTemplatesTable extends Migration
 			$table->tinyInteger('level')->unsigned()->default(1);
 			$table->smallInteger('defense')->unsigned();
 			$table->smallInteger('weight')->unsigned();		
-			$table->smallInteger('firedmg')->unsigned();
-			$table->smallInteger('waterdmg')->unsigned();
-			$table->smallInteger('earthdmg')->unsigned();
-			$table->smallInteger('lightningdmg')->unsigned();
-			$table->smallInteger('winddmg')->unsigned();
+			$table->smallInteger('fireres')->unsigned();
+			$table->smallInteger('waterres')->unsigned();
+			$table->smallInteger('earthres')->unsigned();
+			$table->smallInteger('lightningres')->unsigned();
+			$table->smallInteger('windres')->unsigned();
             $table->string('image', 250);
             $table->smallInteger('image_height')->unsigned();
             $table->text('misc')->nullable();
