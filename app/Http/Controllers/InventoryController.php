@@ -21,10 +21,8 @@ class InventoryController extends Controller
     public function main() 
     {
 	    
-	    $weapons 	= $this->character->weapons();
-	    
-	    dd($weapons);
-	    
+	    //$weapons 	= $this->character->weapons();
+	    /*
 	    foreach ($weapons as $weapon) {
 		    if ( $weapon->isEquipped() )
 		    	$weapon_equipped = $weapon;
@@ -32,7 +30,7 @@ class InventoryController extends Controller
 	    
 	    $armors 	= $this->character->armors;
 	    $items		= $this->character->items;
-	    
+	    */
 	    
     	return view('inventory');
     }
