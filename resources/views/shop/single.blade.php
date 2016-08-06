@@ -21,7 +21,7 @@
 		        </td>
 		        <td width='40' align='left'>{{ $product->cost }} {{ $product->currency }}</td>
 		        <td width='30' align='center'>
-		            <a href="{{ url('mensk/merchant/'.$product->id) }}" class='action-btn-sm btn'>Buy</a>
+		            <a href="{{ url('mensk/merchant/'.$product->product_id) }}" class='action-btn-sm btn'>Buy</a>
 		        </td>
 		    </tr>
 			<tr>
