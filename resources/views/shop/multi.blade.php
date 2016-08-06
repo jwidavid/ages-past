@@ -24,7 +24,11 @@
                     </td>
                     <td width='40' align='left'>{{ $product->cost }} {{ $product->currency }}</td>
                     <td width='30' align='center'>
-                        <a href="{{ url('mensk/merchant/'.$product->id) }}" class='action-btn-sm btn'>Buy</a>
+                        
+                        <a href="{{ url(request()->path().'/'.$product->product_id) }}" class='action-btn-sm btn'>Buy</a>
+                        
+                        
+                        
                     </td>
                 </tr>
                 <tr >
@@ -56,7 +60,7 @@
                 <thead>
                     <th width='130' align='center'><b>Armor</b></th>
                     <th width='50' align='center'>Cost</th>
-                    <th width='30' align='center'>+</th>
+                    <th width='30' align='center'> </th>
                 </thead>
     
                 @foreach($armors as $product)
@@ -67,7 +71,7 @@
                     </td>
                     <td width='40' align='left'>{{ $product->cost }} {{ $product->currency }}</td>
                     <td width='30' align='center'>
-                        <a href="{{ url('mensk/merchant/'.$product->id) }}" class='action-btn-sm btn'>Buy</a>
+                        <a href="{{ url(request()->path().'/'.$product->product_id) }}" class='action-btn-sm btn'>Buy</a>
                     </td>
                 </tr>
                 <tr >
