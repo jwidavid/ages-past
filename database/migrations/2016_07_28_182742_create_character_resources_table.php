@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCharactersResourcesTable extends Migration
+class CreateCharacterResourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateCharactersResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('characters_resources', function (Blueprint $table) {
+        Schema::create('character_resources', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('character_id')->unsigned()->index();
             $table->integer('coins')->unsigned()->default(50);
@@ -38,6 +38,6 @@ class CreateCharactersResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('characters_resources');
+        Schema::drop('character_resources');
     }
 }

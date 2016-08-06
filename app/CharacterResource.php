@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Validator;
 
-class CharactersResource extends Model
+class CharacterResource extends Model
 {
 	
 	protected $fillable = ['coins', 'bronze', 'silver', 'gold', 'platinum'];	

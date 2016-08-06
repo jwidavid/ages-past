@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CharactersResourcesTableSeeder extends Seeder
+class CharacterResourcesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class CharactersResourcesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('characters_resources')->insert([
+        DB::table('character_resources')->insert([
             [
                 'character_id' => 1,                
                 'coins' => 50,
