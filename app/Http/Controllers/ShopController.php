@@ -73,11 +73,11 @@ class ShopController extends Controller
     protected function getProductTemplate( $product_base )
     {
         if ( $product_base->weapon_template_id )
-            return $product_base->weapon_template;
+            return $product_base->weaponTemplate;
         elseif ( $product_base->armor_template_id )
-            return $product_base->armor_template;
+            return $product_base->armorTemplate;
         else
-            return $product_base->item_template;
+            return $product_base->itemTemplate;
     }
     
     public function main($shop_id) 
