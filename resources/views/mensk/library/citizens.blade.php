@@ -2,16 +2,13 @@
 
 @section('content')
 <div class="container-fluid game-container">
-    <h1>Citizen Records</h1>
+    <h1>Citizen of Mensk</h1>
     <p>
     	You trace along the book titles, creating a dusty trail, while you scan for one book in particular.<br>
 		A title catches your eye and your finger taps on it before you haul it off the shelf and onto a table.
     </p>
     <p>
         You begin to thumb through the pages.
-        @if( isset($message) )
-        {{ $message }}
-        @endif
     </p>
     <div class="row">
     	<div class="col-md-6">

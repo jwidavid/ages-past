@@ -197,7 +197,8 @@
                             <li class="col-xs-6 mb10"><a href="stats.php?view=element" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Element</a></li>
                             <li class="col-xs-6 mb10"><a href="stats.php?view=mining" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Mining</a></li>
                             <li class="col-xs-6 mb10"><a href="stats.php?view=reputation" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Reputation</a></li>
-                            <li class="col-xs-6 mb10"><a href="equipment.php" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Equipment</a></li>
+                            <li class="col-xs-6 mb10">
+                            	<a href="{{ url('character/inventory') }}" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Inventory</a></li>
                             <li class="col-xs-6 mb10"><a href="stats.php?view=tickets" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Tickets</a></li>
                             <li class="col-xs-6 mb10"><a href="stats.php?view=boosters" onclick="$('#extruderLeft').closeMbExtruder();" class="action-btn-sm btn center-block">Boosters</a></li>
                         </ul>

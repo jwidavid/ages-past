@@ -16,9 +16,9 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('title', 100)->unique();
             $table->enum('category', array('research','creative'));
-            $table->string('topic', 50);
             $table->text('description');
             $table->text('body');
+            $table->boolean('is_active');
             
             $table->timestamps();
         });

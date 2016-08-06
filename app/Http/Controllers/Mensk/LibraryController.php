@@ -29,10 +29,24 @@ class LibraryController extends Controller
         return view('mensk.library.book')->with('book', $book);
     }
     
-    public function books($category)
+    public function research()
     {
-        $books = Book::where('category', '=', $category);
-        return view('mensk.library.books')->with('books', $books)->with('category', ucfirst($category));
+        $books = Book::where('category', '=', 'research')->where('is_active', '=', 1)->get();
+        
+        if ( !count($books) )
+        	flash('No books are being kept in this section yet.', 'warning');
+        
+        return view('mensk.library.books')->with('books', $books)->with('category', 'Research');
+    }
+    
+    public function creative()
+    {
+        $books = Book::where('category', '=', 'creative')->where('is_active', '=', 1)->get();
+        
+        if ( !count($books) )
+        	flash('No books are being kept in this section yet.', 'warning');
+        
+        return view('mensk.library.books')->with('books', $books)->with('category', 'Creative Writings');
     }
     
     public function info() 

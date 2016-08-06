@@ -18,13 +18,17 @@ class DatabaseSeeder extends Seeder
            // This group is for testing
 		   $this->call(UsersTableSeeder::class);
 		   $this->call(CharactersTableSeeder::class);
-           $this->call(CharactersResourcesTableSeeder::class);
+           $this->call(CharacterResourcesTableSeeder::class);
            $this->call(BankRecordsTableSeeder::class);
            $this->call(ArmorTemplatesTableSeeder::class);
            $this->call(ItemTemplatesTableSeeder::class);
            $this->call(WeaponTemplatesTableSeeder::class);
            $this->call(ShopsTableSeeder::class);
            $this->call(ShopProductsTableSeeder::class);
+           $this->call(ItemsTableSeeder::class);
+           $this->call(QuestsTableSeeder::class);
+           $this->call(BooksTableSeeder::class);           
+           
            
 //         $this->call(ClanPrivilegesTableSeeder::class);
 //         $this->call(DonationPacksTableSeeder::class);

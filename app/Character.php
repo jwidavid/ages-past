@@ -26,7 +26,7 @@ class Character extends Model
      */
     public function resources() 
     {
-        return $this->hasOne(CharactersResource::class);
+        return $this->hasOne(CharacterResource::class);
     }
     
     /**

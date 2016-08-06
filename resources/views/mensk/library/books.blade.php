@@ -13,18 +13,16 @@
         @endif
     </p>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <table cellspacing='0' cellpadding='0' border='0' class="table-striped table item-list">
                 <thead>
-                    <th width='100'>Title</th>
-                    <th width='100'>Topic</th>
-                    <th width='100'>Last Updated</th>
+                    <th width='150'>Title</th>
+                    <th width='300'>Description</th>
                 </thead>
                 @foreach($books as $book)
                 <tr class='clickable-row' data-href="{{ url('/mensk/library/book/'.$book->id) }}">
                     <td>{{ $book->title }}</td>
-                    <td>{{ $book->topic }}</td>
-                    <td>{{ $book->updated_at }}</td>
+                    <td>{{ $book->description }}</td>
                 </tr>
                 @endforeach
             </table>

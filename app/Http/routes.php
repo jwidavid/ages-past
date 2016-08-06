@@ -20,8 +20,10 @@ Route::auth();
 Route::get('/character/create', 'CharacterController@create');
 
 Route::group(['middleware' => 'auth'], function(){
+	
+	Route::get('character/inventory', 'InventoryController@main');
+	
 	Route::get('mensk', 'Mensk\MenskController@main');
-
 
 
     /*********************
@@ -77,9 +79,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('mensk/library/records', 'Mensk\LibraryController@records');
         Route::get('mensk/library/clans', 'Mensk\LibraryController@clans');
         Route::get('mensk/library/citizens', 'Mensk\LibraryController@citizens');
+     
+    Route::get('mensk/library/research', 'Mensk\LibraryController@research');
+    Route::get('mensk/library/creative', 'Mensk\LibraryController@creative');
     
     Route::get('mensk/library/books', 'Mensk\LibraryController@books');
-    Route::get('mensk/library/books/{category}', 'Mensk\LibraryController@books');
     Route::get('mensk/library/book/{book_id}', 'Mensk\LibraryController@book');
     
     
@@ -94,4 +98,5 @@ Route::group(['middleware' => 'auth'], function(){
     // Notices
     
     Route::get('mensk/notices', 'Mensk\NoticesController@main');
+    	Route::get('mensk/notices/{quest_id}', 'Mensk\NoticesController@quest');
 });
