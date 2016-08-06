@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Shop;
 use App\ShopProduct;
 use App\Armor;
@@ -10,6 +9,8 @@ use App\Item;
 use App\Weapon;
 use App\Http\Requests;
 use Auth;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
@@ -37,6 +38,7 @@ class ShopController extends Controller
             'earthres'      => $product->earthres,
             'lightningres'  => $product->lightningres,
             'windres'       => $product->windres,
+            'created_at' 	=> Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         return true;
@@ -47,7 +49,8 @@ class ShopController extends Controller
         Item::create([
             'item_template_id' => $product_base->item_template_id,
             'character_id' => $this->character->id,
-            'uses' => $product->uses
+            'uses' => $product->uses,
+            'created_at' 	=> Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         return true;
@@ -65,6 +68,7 @@ class ShopController extends Controller
             'earthdmg'          => $product->earthdmg,
             'lightningdmg'      => $product->lightningdmg,
             'winddmg'           => $product->winddmg,
+            'created_at' 		=> Carbon::now()->format('Y-m-d H:i:s'),
         ]);
         
         return true;
