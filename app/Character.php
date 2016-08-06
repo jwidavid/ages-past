@@ -22,7 +22,7 @@ class Character extends Model
     /**
      * Get the character's financial resources
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function resources() 
     {
@@ -32,7 +32,7 @@ class Character extends Model
     /**
      * Get the character's banked financial resources
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function bankRecord() 
     {
@@ -40,12 +40,32 @@ class Character extends Model
     }
     
     /**
-     * Get the character's banked financial resources
+     * Get the character's items
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function items() 
     {
         return $this->hasMany(Item::class);
+    }
+    
+    /**
+     * Get the character's weapons
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function weapons() 
+    {
+    	return $this->hasMany(Weapon::class);
+    }
+    
+    /**
+     * Get the character's armors
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function armors() 
+    {
+    	return $this->hasMany(Armor::class);
     }
 }

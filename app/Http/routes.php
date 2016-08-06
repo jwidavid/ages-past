@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], function(){
 	    return App::make('App\Http\Controllers\ShopController')->main(2);
 	})->middleware('auth');
 	
-	Route::get('mensk/blacksmith/{product_id}', function($product_id) {		
+	Route::get('mensk/blacksmith/{product_id}', function($product_id) {
 	    return App::make('App\Http\Controllers\ShopController')->purchase(2, $product_id);
 	})->middleware('auth');
 	
