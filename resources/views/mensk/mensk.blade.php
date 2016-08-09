@@ -35,7 +35,7 @@
                 <li><a href='mensk_forest.php'><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Leave Mensk</a></li>
                 <li><a href='mensk_mine.php'><img src="{{ URL::asset('images/icons/mine.png') }}" alt="..." class="img-icon mr5"> The Mines</a></li>
                 <li><a href='mensk_training.php'><img src="{{ URL::asset('images/icons/metal_chest_plate.png') }}" alt="..." class="img-icon mr5"> Training Arena</a></li>
-                <li><a href='mensk_meditation.php'><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Meditation</a></li>                
+                <li><a href="{{ url('/mensk/meditation') }}"><img src="{{ URL::asset('images/icons/metal_sword.png') }}" alt="..." class="img-icon mr5"> Meditation</a></li>                
             </ul>
         </div>
     </div>

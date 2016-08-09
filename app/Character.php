@@ -8,6 +8,7 @@ class Character extends Model
 {
     
     protected $guarded = ['user_id'];
+    public $timestamps = false;
     
     /**
      * Get the user of the character

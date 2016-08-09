@@ -99,4 +99,10 @@ Route::group(['middleware' => 'auth'], function(){
     
     Route::get('mensk/notices', 'Mensk\NoticesController@main');
     	Route::get('mensk/notices/{quest_id}', 'Mensk\NoticesController@quest');
+    
+    
+    // Meditation
+    
+    Route::get('mensk/meditation', 'Mensk\MeditationController@main');
+    	Route::post('mensk/meditation', 'Mensk\MeditationController@meditate');
 });
