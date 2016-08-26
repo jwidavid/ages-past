@@ -41,6 +41,11 @@ Route::group(['middleware' => 'auth'], function(){
 	})->middleware('auth');
 	
 	
+	// Battle Requests
+	
+	Route::get('battle/{character_id}', 'BattleCharacterController@main');
+	
+	
 	// Blacksmith
 	
 	Route::get('mensk/blacksmith', function() {		
