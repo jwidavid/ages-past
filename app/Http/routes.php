@@ -15,15 +15,30 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+
+use Illuminate\Support\Facades\App;
+
+Route::get('/bridge', function() {
+    $pusher = App::make('pusher');
+
+    $pusher->trigger( 'test-channel',
+                      'test-event', 
+                      array('text' => 'Preparing the Pusher Laracon.eu workshop!'));
+
+    return view('index');
+});
+
+
+
 Route::auth();
 
 Route::get('/character/create', 'CharacterController@create');
 
-Route::get('/chat', function() {
-	return view('chat');
-});
-
 Route::group(['middleware' => 'auth'], function(){
+
+	Route::get('/chat', 'ChatController@getIndex');
+	Route::post('/chat/message', 'ChatController@postMessage');
 	
 	Route::get('character/inventory', 'InventoryController@main');
 	

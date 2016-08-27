@@ -2,58 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use Ratchet\MessageComponentInterface;
-use Ratchet\ConnectionInterface;
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
-class ChatController implements MessageComponentInterface
+class ChatController extends Controller
 {
-    protected $clients;
-    private $subscriptions;
-    private $users;
+    var $pusher;
+    var $user;
+    var $chatChannel;
+
+    const DEFAULT_CHAT_CHANNEL = 'chat';
 
     public function __construct()
     {
-        $this->clients = new \SplObjectStorage;
-        $this->subscriptions = [];
-        $this->users = [];
+        $this->pusher = App::make('pusher');
+        $this->user = Auth::user()->character; //Session::get('user');
+        $this->chatChannel = self::DEFAULT_CHAT_CHANNEL;
     }
 
-    public function onOpen(ConnectionInterface $conn)
+    public function getIndex()
     {
-        $this->clients->attach($conn);
-        $this->users[$conn->resourceId] = $conn;
-    }
-
-    public function onMessage(ConnectionInterface $conn, $msg)
-    {
-        $data = json_decode($msg);
-        switch ($data->command) {
-            case "subscribe":
-                $this->subscriptions[$conn->resourceId] = $data->channel;
-                break;
-            case "message":
-                if (isset($this->subscriptions[$conn->resourceId])) {
-                    $target = $this->subscriptions[$conn->resourceId];
-                    foreach ($this->subscriptions as $id=>$channel) {
-                        if ($channel == $target && $id != $conn->resourceId) {
-                            $this->users[$id]->send($data->message);
-                        }
-                    }
-                }
+        if(!$this->user)
+        {
+            return redirect('auth/github?redirect=/chat');
         }
+
+        return view('chat', ['chatChannel' => $this->chatChannel]);
     }
 
-    public function onClose(ConnectionInterface $conn)
+    public function postMessage(Request $request)
     {
-        $this->clients->detach($conn);
-        unset($this->users[$conn->resourceId]);
-        unset($this->subscriptions[$conn->resourceId]);
-    }
-
-    public function onError(ConnectionInterface $conn, \Exception $e)
-    {
-        echo "An error has occurred: {$e->getMessage()}\n";
-        $conn->close();
+        $message = [
+            'text' => e($request->input('chat_text')),
+            'username' => $this->user->name,
+            'avatar' => '',
+            'timestamp' => (time()*1000)
+        ];
+        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
     }
 }
-?>

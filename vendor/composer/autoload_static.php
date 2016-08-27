@@ -36,6 +36,10 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'Vinkla\\Pusher\\' => 14,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
@@ -80,6 +84,10 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'GrahamCampbell\\Manager\\' => 23,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -118,6 +126,10 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Vinkla\\Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vinkla/pusher/src',
         ),
         'Symfony\\Polyfill\\Util\\' => 
         array (
@@ -222,6 +234,10 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'GrahamCampbell\\Manager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/manager/src',
         ),
         'Faker\\' => 
         array (
@@ -344,6 +360,7 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'App\\Http\\Controllers\\Auth\\PasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/PasswordController.php',
         'App\\Http\\Controllers\\BattleCharacterController' => __DIR__ . '/../..' . '/app/Http/Controllers/BattleCharacterController.php',
         'App\\Http\\Controllers\\CharacterController' => __DIR__ . '/../..' . '/app/Http/Controllers/CharacterController.php',
+        'App\\Http\\Controllers\\ChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\InventoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/InventoryController.php',
         'App\\Http\\Controllers\\ItemController' => __DIR__ . '/../..' . '/app/Http/Controllers/ItemController.php',
@@ -878,6 +895,9 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
         'GameRanksTableSeeder' => __DIR__ . '/../..' . '/database/future seeds/GameRanksTableSeeder.php',
         'GameSettingsTableSeeder' => __DIR__ . '/../..' . '/database/future seeds/GameSettingsTableSeeder.php',
+        'GrahamCampbell\\Manager\\AbstractManager' => __DIR__ . '/..' . '/graham-campbell/manager/src/AbstractManager.php',
+        'GrahamCampbell\\Manager\\ConnectorInterface' => __DIR__ . '/..' . '/graham-campbell/manager/src/ConnectorInterface.php',
+        'GrahamCampbell\\Manager\\ManagerInterface' => __DIR__ . '/..' . '/graham-campbell/manager/src/ManagerInterface.php',
         'Guzzle\\Common\\AbstractHasDispatcher' => __DIR__ . '/..' . '/guzzle/common/Guzzle/Common/AbstractHasDispatcher.php',
         'Guzzle\\Common\\Collection' => __DIR__ . '/..' . '/guzzle/common/Guzzle/Common/Collection.php',
         'Guzzle\\Common\\Event' => __DIR__ . '/..' . '/guzzle/common/Guzzle/Common/Event.php',
@@ -2587,6 +2607,9 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'Psy\\VarDumper\\Dumper' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Dumper.php',
         'Psy\\VarDumper\\Presenter' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/Presenter.php',
         'Psy\\VarDumper\\PresenterAware' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VarDumper/PresenterAware.php',
+        'Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/lib/Pusher.php',
+        'PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/lib/Pusher.php',
+        'PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/lib/Pusher.php',
         'QuestsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/QuestsTableSeeder.php',
         'Ratchet\\AbstractConnectionDecorator' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/AbstractConnectionDecorator.php',
         'Ratchet\\App' => __DIR__ . '/..' . '/cboden/ratchet/src/Ratchet/App.php',
@@ -3222,6 +3245,10 @@ class ComposerStaticInit99bc359dfbc4861333651bb70e146881
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UsersTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UsersTableSeeder.php',
+        'Vinkla\\Pusher\\Facades\\Pusher' => __DIR__ . '/..' . '/vinkla/pusher/src/Facades/Pusher.php',
+        'Vinkla\\Pusher\\PusherFactory' => __DIR__ . '/..' . '/vinkla/pusher/src/PusherFactory.php',
+        'Vinkla\\Pusher\\PusherManager' => __DIR__ . '/..' . '/vinkla/pusher/src/PusherManager.php',
+        'Vinkla\\Pusher\\PusherServiceProvider' => __DIR__ . '/..' . '/vinkla/pusher/src/PusherServiceProvider.php',
         'WeaponTemplatesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/WeaponTemplatesTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
