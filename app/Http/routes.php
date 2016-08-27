@@ -19,7 +19,7 @@ Route::auth();
 
 Route::get('/character/create', 'CharacterController@create');
 
-Route::get('/chats', function() {
+Route::get('/chat', function() {
 	return view('chat');
 });
 
