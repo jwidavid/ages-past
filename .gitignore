@@ -4,6 +4,7 @@
 Homestead.yaml
 Homestead.json
 .env
+.env.example
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=base64:UOWeiQ6WtExCqF6n6ygpnqWqUor/k6RYaoX6QNHaMjo=
