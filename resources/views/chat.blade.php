@@ -1,49 +1,53 @@
 @extends("layouts.gamewrapper")
 
 @section("content")
-<section class="blue-gradient-background">
-    <div class="container">
-        <div class="row light-grey-blue-background chat-app">
+<div class="container-fluid game-container">
+	<h1>Game Chat</h1>
 
-            <div id="messages">
-                <div class="time-divide">
-                    <span class="date">Today</span>
-                </div>
-            </div>
-
-            <div class="action-bar">
-                <textarea class="input-message col-xs-10" placeholder="Your message"></textarea>
-                <div class="option col-xs-1 white-background">
-                    <span class="fa fa-smile-o light-grey"></span>
-                </div>
-                <div class="option col-xs-1 green-background send-message">
-                    <span class="white light fa fa-paper-plane-o"></span>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+	<section class="blue-gradient-background">
+	    <div class="container">
+	        <div class="row light-grey-blue-background chat-app">
+	
+	            <div id="messages">
+	                <div class="time-divide">
+	                    <span class="date">Today</span>
+	                </div>
+	            </div>
+	
+	            <div class="action-bar">
+	                <textarea class="input-message col-xs-10" placeholder="Your message"></textarea>
+	                <div class="option col-xs-1 white-background">
+	                    <span class="fa fa-smile-o light-grey"></span>
+	                </div>
+	                <div class="option col-xs-1 green-background send-message">
+	                    <span class="white light fa fa-paper-plane-o"></span>
+	                </div>
+	            </div>
+	
+	        </div>
+	    </div>
+	</section>
+</div>
 @stop
 
 @section("page-script-head")
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <style>
-    .chat-app {
-        margin: 50px;
-        padding-top: 10px;
-    }
+.chat-app {
+    margin: 50px;
+    padding-top: 10px;
+}
 
-    .chat-app .message:first-child {
-        margin-top: 15px;
-    }
+.chat-app .message:first-child {
+    margin-top: 15px;
+}
 
-    #messages {
-        height: 300px;
-        overflow: auto;
-        padding-top: 5px;
-    }
+#messages {
+    height: 300px;
+    overflow: auto;
+    padding-top: 5px;
+}
 </style>
 
 <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
