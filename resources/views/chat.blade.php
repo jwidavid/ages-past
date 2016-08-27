@@ -1,27 +1,10 @@
-@extends("layouts.gamewrapper")
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Laravel with Pusher</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-@section("content")
-<div class="container-fluid game-container">
-	<h1>Inventory</h1>
-    <div class="row">
-		<div class="stripe no-padding-bottom numbered-stripe">
-		    <div class="fixed wrapper">
-		        <ol class="strong" start="2">
-		            <li>
-		                <div class="hexagon"></div>
-		                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
-		            </li>
-		        </ol>
-		    </div>
-		</div>
-    </div>
-</div>
-@stop
-
-
-@section("page-script-head")
-
-<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="http://d3dhju7igb20wy.cloudfront.net/assets/0-4-0/all-the-things.css" />
     <style>
         .chat-app {
@@ -40,7 +23,8 @@
         }
     </style>
 
-<script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
     <script src="//js.pusher.com/3.0/pusher.min.js"></script>
 
     <script>
@@ -56,9 +40,20 @@
             console.log(msg);
         };
     </script>
-@stop
+</head>
+<body>
 
-@section("page-script")
+<div class="stripe no-padding-bottom numbered-stripe">
+    <div class="fixed wrapper">
+        <ol class="strong" start="2">
+            <li>
+                <div class="hexagon"></div>
+                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
+            </li>
+        </ol>
+    </div>
+</div>
+
 <section class="blue-gradient-background">
     <div class="container">
         <div class="row light-grey-blue-background chat-app">
@@ -169,4 +164,6 @@
     channel.bind('new-message', addMessage);
 
 </script>
-@stop
+
+</body>
+</html>
