@@ -19,6 +19,10 @@ Route::auth();
 
 Route::get('/character/create', 'CharacterController@create');
 
+Route::get('/chat', function() {
+	return view('chat');
+});
+
 Route::group(['middleware' => 'auth'], function(){
 	
 	Route::get('character/inventory', 'InventoryController@main');
