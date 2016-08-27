@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Real-Time Laravel with Pusher</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@extends("layouts.gamewrapper")
 
-    <style>
-        .chat-app {
-            margin: 50px;
-            padding-top: 10px;
-        }
-
-        .chat-app .message:first-child {
-            margin-top: 15px;
-        }
-
-        #messages {
-            height: 300px;
-            overflow: auto;
-            padding-top: 5px;
-        }
-    </style>
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
-    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
-
-    <script>
-        // Ensure CSRF token is sent with AJAX requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        // Added Pusher logging
-        Pusher.log = function(msg) {
-            console.log(msg);
-        };
-    </script>
-</head>
-<body>
-
+@section("content")
 <section class="blue-gradient-background">
     <div class="container">
         <div class="row light-grey-blue-background chat-app">
@@ -64,7 +24,47 @@
         </div>
     </div>
 </section>
+@stop
 
+@section("page-script-head")
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
+<style>
+    .chat-app {
+        margin: 50px;
+        padding-top: 10px;
+    }
+
+    .chat-app .message:first-child {
+        margin-top: 15px;
+    }
+
+    #messages {
+        height: 300px;
+        overflow: auto;
+        padding-top: 5px;
+    }
+</style>
+
+<script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
+<script src="//js.pusher.com/3.0/pusher.min.js"></script>
+
+<script>
+    // Ensure CSRF token is sent with AJAX requests
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // Added Pusher logging
+    Pusher.log = function(msg) {
+        console.log(msg);
+    };
+</script>
+@stop
+    
+@section("page-script")
 <script id="chat_message_template" type="text/template">
     <div class="message">
         <div class="avatar">
@@ -151,6 +151,4 @@
     channel.bind('new-message', addMessage);
 
 </script>
-
-</body>
-</html>
+@stop
