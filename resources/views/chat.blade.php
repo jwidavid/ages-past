@@ -4,8 +4,6 @@
     <title>Real-Time Laravel with Pusher</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic" rel="stylesheet" type="text/css">
-    
     <style>
         .chat-app {
             margin: 50px;
@@ -42,17 +40,6 @@
     </script>
 </head>
 <body>
-
-<div class="stripe no-padding-bottom numbered-stripe">
-    <div class="fixed wrapper">
-        <ol class="strong" start="2">
-            <li>
-                <div class="hexagon"></div>
-                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
-            </li>
-        </ol>
-    </div>
-</div>
 
 <section class="blue-gradient-background">
     <div class="container">
