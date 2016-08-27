@@ -1,14 +1,19 @@
 @extends("layouts.gamewrapper")
 
 @section("content")
-<div class="stripe no-padding-bottom numbered-stripe">
-    <div class="fixed wrapper">
-        <ol class="strong" start="2">
-            <li>
-                <div class="hexagon"></div>
-                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
-            </li>
-        </ol>
+<div class="container-fluid game-container">
+	<h1>Inventory</h1>
+    <div class="row">
+		<div class="stripe no-padding-bottom numbered-stripe">
+		    <div class="fixed wrapper">
+		        <ol class="strong" start="2">
+		            <li>
+		                <div class="hexagon"></div>
+		                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
+		            </li>
+		        </ol>
+		    </div>
+		</div>
     </div>
 </div>
 @stop
