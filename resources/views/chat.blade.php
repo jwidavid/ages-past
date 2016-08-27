@@ -45,6 +45,7 @@
 
 #messages {
     height: 300px;
+    max-width: 500px;
     overflow: auto;
     padding-top: 5px;
 }
