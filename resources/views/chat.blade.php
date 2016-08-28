@@ -12,6 +12,23 @@
 	                <div class="time-divide">
 	                    <span class="date">Today</span>
 	                </div>
+
+	                @foreach($messages as $message)
+	                <div class="message">
+				        <div class="avatar">
+				            <img src="">
+				        </div>
+				        <div class="text-display">
+				            <div class="message-data">
+				                <span class="author">{{ $message->name }}</span>
+				                <span class="timestamp">{{ $message->created_at }}</span>
+				                <span class="seen"></span>
+				            </div>
+				            <p class="message-body">{{ $message->message }}</p>
+				        </div>
+				    </div>
+					@endforeach
+	                
 	            </div>
 	
 	            <div class="action-bar">

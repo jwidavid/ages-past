@@ -25,8 +25,10 @@ class ChatController extends Controller
     }
 
     public function getIndex()
-    {	 
-        return view('chat', ['chatChannel' => $this->chatChannel]);
+    {		    
+	    $messages = ChatMessage::all();	    
+	    
+        return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $messages);
     }
 
     public function postMessage(Request $request)
