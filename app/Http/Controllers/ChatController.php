@@ -24,12 +24,7 @@ class ChatController extends Controller
     }
 
     public function getIndex()
-    {
-        if(!$this->user)
-        {
-            return redirect('auth/github?redirect=/chat');
-        }
-
+    {	 
         return view('chat', ['chatChannel' => $this->chatChannel]);
     }
 
@@ -41,6 +36,10 @@ class ChatController extends Controller
             'avatar' => '',
             'timestamp' => (time()*1000)
         ];
+        
+        
+        //record to database
+        
         $this->pusher->trigger($this->chatChannel, 'new-message', $message);
     }
 }
