@@ -36,7 +36,9 @@ class ChatController extends Controller
             'username' => $this->user->name,
             'avatar' => '',
             'timestamp' => (time()*1000)
-        ];
+        ];                
+        
+        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
         
         //record to database
         ChatMessasge::create([
@@ -45,7 +47,5 @@ class ChatController extends Controller
 	        'message' => e($request->input('chat_text')),
 	        'created_at' => (time()*1000)
         ]);
-        
-        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
     }
 }
