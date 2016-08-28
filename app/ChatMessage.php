@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ChatMessage extends Model
 {
     protected $fillable = [
-    	'character_id','name','message','create_at'
+    	'character_id','name','message','created_at'
 	];
 	public $timestamps = false;
 }
