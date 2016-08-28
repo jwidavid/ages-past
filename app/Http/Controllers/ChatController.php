@@ -36,16 +36,16 @@ class ChatController extends Controller
             'username' => $this->user->name,
             'avatar' => '',
             'timestamp' => (time()*1000)
-        ];                
-        
-        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
+        ];
         
         //record to database
-        ChatMessasge::create([
+        ChatMessage::create([
 	        'character_id' => $this->user->id,
 	        'name' => $this->user->name,
 	        'message' => e($request->input('chat_text')),
 	        'created_at' => (time()*1000)
         ]);
+        
+        $this->pusher->trigger($this->chatChannel, 'new-message', $message);
     }
 }
