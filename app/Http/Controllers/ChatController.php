@@ -30,7 +30,7 @@ class ChatController extends Controller
     }
 
     public function postMessage(Request $request)
-    {
+    {	                    
         $message = [
             'text' => e($request->input('chat_text')),
             'username' => $this->user->name,
@@ -38,15 +38,13 @@ class ChatController extends Controller
             'timestamp' => (time()*1000)
         ];
         
-        
         //record to database
-//         ChatMessage::create([
-// 	        'character_id' => $this->user->id,
-// 	        'name' => $this->user->name,
-// 	        'message' => e($request->input('chat_text')),
-// 	        'created_at' => (time()*1000)
-//         ]);
-
+        ChatMessasge::create([
+	        'character_id' => $this->user->id,
+	        'name' => $this->user->name,
+	        'message' => $request->input('chat_text'),
+	        'created_at' => (time()*1000)
+        ]);
         
         $this->pusher->trigger($this->chatChannel, 'new-message', $message);
     }
