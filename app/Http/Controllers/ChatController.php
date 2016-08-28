@@ -44,7 +44,7 @@ class ChatController extends Controller
 	        'character_id' => $this->user->id,
 	        'name' => $this->user->name,
 	        'message' => e($request->input('chat_text')),
-	        'created_at' => (time()*1000);
+	        'created_at' => (time()*1000)
         ]);
 
         
