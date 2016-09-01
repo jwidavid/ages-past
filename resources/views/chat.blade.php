@@ -10,7 +10,7 @@
 	
 	            <div id="messages">
 	                <div class="time-divide">
-	                    <span class="date">Today</span>
+	                    <span class="date">Today &#1F601;</span>
 	                </div>
 
 	                @foreach($messages as $message)
