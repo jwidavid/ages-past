@@ -26,10 +26,18 @@ class ChatController extends Controller
 
     public function getIndex()
     {		    
-	    $messages = ChatMessage::all();	    
+	    $messages = ChatMessage::all();
+	    
+	    
+	    dd($messages);
+	     20:46:05 pm
 	    
         return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $messages);
     }
+
+	private function convertDate() {
+		return date('H:i:s', $msgTime);
+	}
 
     public function postMessage(Request $request)
     {	                    
