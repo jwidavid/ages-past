@@ -45,12 +45,13 @@
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <style>
-.chat-app {
-    margin: 50px;
-    padding-top: 10px;
+#messages {
+    height: 300px;
+    max-width: 1470px;
+    overflow: auto;
+    padding-top: 5px;
 }
-
-.chat-app .message {
+.message {
 	min-height: 12px;
 	height:auto;
 	width:100%;
@@ -58,13 +59,6 @@
 
 .chat-app .message:first-child {
     margin-top: 15px;
-}
-
-#messages {
-    height: 300px;
-    max-width: 100%;
-    overflow: auto;
-    padding-top: 5px;
 }
 </style>
 
