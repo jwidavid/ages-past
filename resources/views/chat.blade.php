@@ -51,6 +51,7 @@
     margin-top: 15px;
 }
 .action-bar {
+	position:relative;
 	margin-top:15px;
 }
 </style>
