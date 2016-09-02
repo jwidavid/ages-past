@@ -27,11 +27,10 @@ class ChatController extends Controller
     public function getIndex()
     {		    
 	    $messages = ChatMessage::all();
-	    $newMessages = array();
 	    
 	    foreach ($messages as $message) {
-		    $message['created_at'] = date('H:i:s', ($message['created_at']-1000));
-		    $newMessages[] = $message;
+		    $messages[$count]['created_at'] = date('H:i:s', $message['created_at']);
+		    $count++;
 	    }
 	    
         return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $newMessages);
@@ -51,7 +50,7 @@ class ChatController extends Controller
 	        'character_id' => $this->user->id,
 	        'name' => $this->user->name,
 	        'message' => e($request->input('chat_text')),
-	        'created_at' => (time()*1000)
+	        'created_at' => time()
         ]);
         
         $this->pusher->trigger($this->chatChannel, 'new-message', $message);
