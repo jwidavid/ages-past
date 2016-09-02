@@ -30,7 +30,7 @@ class ChatController extends Controller
 	    $newMessages = array();
 	    
 	    foreach ($messages as $message) {
-		    $message[4] = date('H:i:s', $message[4]);
+		    $message[5] = date('H:i:s', $message[5]);
 		    $newMessages[] = $message;
 	    }
 	    
