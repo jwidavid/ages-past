@@ -47,10 +47,6 @@
 	min-height: 12px;
 	height:auto;
 }
-
-.chat-app .message:first-child {
-    margin-top: 15px;
-}
 </style>
 
 <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
