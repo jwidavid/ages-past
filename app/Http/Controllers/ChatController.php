@@ -34,7 +34,7 @@ class ChatController extends Controller
 		    $count++;
 	    }
 	    
-        return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $newMessages);
+        return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $messages);
     }
 
     public function postMessage(Request $request)
