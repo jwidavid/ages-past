@@ -28,15 +28,13 @@ class ChatController extends Controller
     {		    
 	    $messages = ChatMessage::all();
 	    
-	    
-	    dd($messages);
-
+		array_walk_recursive($messages, 'convertDate');
 	    
         return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $messages);
     }
 
-	private function convertDate() {
-		return date('H:i:s', $msgTime);
+	private function convertDate(&$item,$key) {
+		$item = date('H:i:s', $key[5]);
 	}
 
     public function postMessage(Request $request)
