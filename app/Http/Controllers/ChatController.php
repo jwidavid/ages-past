@@ -30,7 +30,7 @@ class ChatController extends Controller
 	    
 	    
 	    dd($messages);
-	     20:46:05 pm
+
 	    
         return view('chat', ['chatChannel' => $this->chatChannel])->with('messages', $messages);
     }
