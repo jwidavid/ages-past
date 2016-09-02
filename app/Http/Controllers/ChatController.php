@@ -27,6 +27,7 @@ class ChatController extends Controller
     public function getIndex()
     {		    
 	    $messages = ChatMessage::all();
+	    $count = 0;
 	    
 	    foreach ($messages as $message) {
 		    $messages[$count]['created_at'] = date('H:i:s', $message['created_at']);
