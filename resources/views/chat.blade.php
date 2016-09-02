@@ -4,7 +4,7 @@
 <div class="container-fluid game-container">
 	<h1>Game Chat</h1>
 
-	<section class="blue-gradient-background">
+	<section>
 	    <div class="container">
 	        <div class="row light-grey-blue-background chat-app">
 	
@@ -15,16 +15,10 @@
 
 	                @foreach($messages as $message)
 	                <div class="message">
-				        <div class="avatar">
-				            <img src="">
-				        </div>
-				        <div class="text-display">
-				            <div class="message-data">
-				                <span class="author">{{ $message->name }}</span>
-				                <span class="timestamp">{{ $message->created_at }}</span>
-				                <span class="seen"></span>
-				            </div>
-				            <p class="message-body">{{ $message->message }}</p>
+			            <div class="message-data">
+			                <span class="author">{{ $message->name }}</span>
+			                <span class="timestamp">{{ $message->created_at }}:</span>
+			                <span class="message-body">{{ $message->message }}</span>
 				        </div>
 				    </div>
 					@endforeach
@@ -56,13 +50,19 @@
     padding-top: 10px;
 }
 
+.chat-app .message {
+	min-height: 12px;
+	height:auto;
+	width:100%;
+}
+
 .chat-app .message:first-child {
     margin-top: 15px;
 }
 
 #messages {
     height: 300px;
-    max-width: 500px;
+    max-width: 100%;
     overflow: auto;
     padding-top: 5px;
 }
