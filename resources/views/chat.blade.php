@@ -54,7 +54,6 @@
 .message {
 	min-height: 12px;
 	height:auto;
-	width:100%;
 }
 
 .chat-app .message:first-child {
