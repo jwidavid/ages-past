@@ -4,35 +4,31 @@
 <div class="container-fluid game-container">
 	<h1>Game Chat</h1>
 
-    <div class="container">
+    <div id="messages" class="col-md-8">
+        <div class="time-divide">
+            <span class="date">Today</span>
+        </div>
 
-            <div id="messages">
-                <div class="time-divide">
-                    <span class="date">Today</span>
-                </div>
+        @foreach($messages as $message)
+        <div class="message">
+            <div class="message-data">
+                <span class="author">{{ $message->name }}</span>
+                <span class="timestamp">{{ $message->created_at }}:</span>
+                <span class="message-body">{{ $message->message }}</span>
+	        </div>
+	    </div>
+		@endforeach
+        
+    </div>
 
-                @foreach($messages as $message)
-                <div class="message">
-		            <div class="message-data">
-		                <span class="author">{{ $message->name }}</span>
-		                <span class="timestamp">{{ $message->created_at }}:</span>
-		                <span class="message-body">{{ $message->message }}</span>
-			        </div>
-			    </div>
-				@endforeach
-                
-            </div>
-
-            <div class="action-bar">
-                <textarea class="input-message col-xs-10" placeholder="Your message"></textarea>
-                <div class="option col-xs-1 white-background">
-                    <span class="fa fa-smile-o light-grey"></span>
-                </div>
-                <div class="option col-xs-1 green-background send-message">
-                    <span class="white light fa fa-paper-plane-o"></span>
-                </div>
-            </div>
-
+    <div class="action-bar">
+        <textarea class="input-message col-xs-10" placeholder="Your message"></textarea>
+        <div class="option col-xs-1 white-background">
+            <span class="fa fa-smile-o light-grey"></span>
+        </div>
+        <div class="option col-xs-1 green-background send-message">
+            <span class="white light fa fa-paper-plane-o"></span>
+        </div>
     </div>
 </div>
 @stop
