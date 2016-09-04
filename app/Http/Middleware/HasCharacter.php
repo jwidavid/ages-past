@@ -14,9 +14,9 @@ class HasCharacter
      * @var array
      */
     protected $except = [
-        '',
-        'logout',
-        'login',
+        '/',
+        '/logout',
+        '/login',
     ];
     
     /**

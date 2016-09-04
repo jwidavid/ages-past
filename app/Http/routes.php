@@ -33,7 +33,8 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/character/create', 'CharacterController@create');
+Route::get('/character/create', 'CharacterController@createView');
+Route::post('/character/create', 'CharacterController@create');
 
 Route::group(['middleware' => 'auth'], function(){
 

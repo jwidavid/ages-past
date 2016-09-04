@@ -23,12 +23,17 @@
             </div>
         </div>
         <div class="col-md-4 col-md-offset-1 col-sm-6">
-            <form role="form" method="POST" action="#">
-                
+            <form role="form" method="POST" action="{{ url('/character/create') }}">
+                {{ csrf_field() }}
                 <input type="hidden" name="race_id" id="race_id" value="{{ $races[0]->id }}">
                 <input type="hidden" name="gender" id="gender" value="male">
+                <input type="hidden" name="element" id="element" value="fire">
+                <input type="hidden" name="strength" id="strength" value="5">
+                <input type="hidden" name="endurance" id="endurance" value="5">
+                <input type="hidden" name="agility" id="agility" value="5">
+                <input type="hidden" name="perception" id="perception" value="5">
 
-                <h2>Please create your game character</h2>
+                <h2>Game character</h2>
                 <div class="form-group">
                     <div>
                         <label for="name" class="sr-only">Name</label>
@@ -86,35 +91,81 @@
                     </a>
 
                 </div>
-                <div class="form-group carousel carousel-race" id="race-carousel" data-interval="false">
+                
+                <div class="form-group carousel carousel-element" id="element-carousel" data-interval="false">
+                    <!-- Gender slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active" id="fire">
+                            <div class="carousel-content">
+                                <h3>Fire</h3>
+                            </div>
+                        </div>
+                        <div class="item" id="water">
+                            <div class="carousel-content">
+                                <h3>Water</h3>
+                            </div>
+                        </div>
+                        <div class="item" id="earth">
+                            <div class="carousel-content">
+                                <h3>Earth</h3>
+                            </div>
+                        </div>
+                        <div class="item" id="lightning">
+                            <div class="carousel-content">
+                                <h3>Lightning</h3>
+                            </div>
+                        </div>
+                        <div class="item" id="wind">
+                            <div class="carousel-content">
+                                <h3>Wind</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left left-element carousel-control" href="#element-carousel" role="button">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="right right-element carousel-control" href="#element-carousel" role="button">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+                
+                <div class="form-group" id="stat-carousel" data-interval="false">
                     <!-- Race Stats slides -->
                     <div class="carousel-inner" role="listbox">
-                        @foreach($races as $i => $race)
-                        <div class="item{{ ($i == 0) ? ' active' : '' }} carousel-content table-responsive table-attributes">
+                        <div class="carousel-content table-responsive table-attributes">
                             <table class="table">
                                 <tr>
                                     <th>Strength</th>
-                                    <td>{{ $race->strength }}</td>
+                                    <td class="glyphicon glyphicon-minus decStrengthStat" style='background-color:white;color:#337ab7'></td>
+                                    <td id="strengthStat">{{ $race->strength }}</td>
+                                    <td class="glyphicon glyphicon-plus incStrengthStat" style='background-color:white;color:#337ab7'></td>
+                                </tr>
+                                <tr>
+                                    <th>Endurance</th>
+                                    <td class="glyphicon glyphicon-minus decEnduranceStat" style='background-color:white;color:#337ab7'></td>
+                                    <td id="enduranceStat">{{ $race->endurance }}</td>
+                                    <td class="glyphicon glyphicon-plus incEnduranceStat" style='background-color:white;color:#337ab7'></td>
                                 </tr>
                                 <tr>
                                     <th>Agility</th>
-                                    <td>{{ $race->agility }}</td>
-                                </tr>
+                                    <td class="glyphicon glyphicon-minus decAgilityStat" style='background-color:white;color:#337ab7'></td>
+                                    <td id="agilityStat">{{ $race->agility }}</td>
+                                    <td class="glyphicon glyphicon-plus incAgilityStat" style='background-color:white;color:#337ab7'></td>
+                                </tr>                                
                                 <tr>
-                                    <th>Constitution</th>
-                                    <td>{{ $race->constitution }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Intelligence</th>
-                                    <td>{{ $race->intelligence }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Charisma</th>
-                                    <td>{{ $race->charisma }}</td>
+                                    <th>Perception</th>
+                                    <td class="glyphicon glyphicon-minus decPerceptionStat" style='background-color:white;color:#337ab7'></td>
+                                    <td id="perceptionStat">{{ $race->perception }}</td>
+                                    <td class="glyphicon glyphicon-plus incPerceptionStat" style='background-color:white;color:#337ab7'></td>
                                 </tr>
                             </table>
                         </div>
-                        @endforeach
                     </div>
 
                 </div>

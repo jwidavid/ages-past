@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class CharacterController extends Controller
 {
@@ -23,34 +22,36 @@ class CharacterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createView()
     {
-        
         $race[0] = [
             'id' => 1,
-            'name' => 'Human',
-            'description' => 'This race combines in itself all the properties of the other races, albeit they are less pronounced.',
-            'male_image' => 'races/human-male.png',
-            'female_image' => 'races/human-female.png',
+            'name' => 'Fighter',
+            'description' => 'Slight bonus to damage in combat.',
+            'male_image' => 'lineage/fighter-male.png',
+            'female_image' => 'lineage/fighter-female.png',
             'strength' => 5,
+            'endurance' => 5,
             'agility' => 5,
-            'constitution' => 5,
-            'intelligence' => 5,
-            'charisma' => 1];
+            'perception' => 5];
         $race[1] = [
             'id' => 2,
-            'name' => 'Elf',
-            'description' => 'This race is known for it\'s great agility, but lacks constitution.',
-            'male_image' => 'races/elf-male.png',
-            'female_image' => 'races/elf-female.png',
+            'name' => 'Ranger',
+            'description' => 'Moves through the wilderness more efficiently.',
+            'male_image' => 'lineage/ranger-male.png',
+            'female_image' => 'lineage/ranger-female.png',
             'strength' => 5,
-            'agility' => 9,
-            'constitution' => 1,
-            'intelligence' => 5,
-            'charisma' => 1];
+            'endurance' => 5,
+            'agility' => 5,
+            'perception' => 5];
         
-        $races = json_decode (json_encode ($race), FALSE);
-        
-        return view('character.create')->with('races', $races);
+        $races = json_decode (json_encode ($race), FALSE); 
+	
+		return view('character.create')->with('races', $races);
+    }
+    
+    protected function create(Request $request)
+    {
+	    dd( $request );
     }
 }
