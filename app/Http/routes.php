@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 
-
 // use Illuminate\Support\Facades\App;
 // 
 // Route::get('/bridge', function() {
